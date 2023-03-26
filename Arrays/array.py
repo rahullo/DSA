@@ -33,6 +33,17 @@ class Solution:
 
         return arr
     
+    def maxSubArray(self, nums):
+        maximum = 0
+        if len(nums) <2:
+            return nums[0]
+        for i in range(len(nums)):
+            cum_sum = 0
+            for j in range(i, len(nums)):
+                cum_sum += nums[j]
+                maximum = max( maximum, cum_sum)
+        return maximum
+    
 array = Solution()
 
-print(array.reverseArray([1,2,3,4,5,6]))
+print(array.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
