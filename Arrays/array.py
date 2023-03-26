@@ -25,6 +25,14 @@ class Solution:
         # Other solution(Best)
         # return s[::-1]
     
+    def reverseArray(self,arr):
+        n = len(arr)
+        for i in range(n//2):
+            print(arr[n-1-i], arr[i])
+            arr[n-1-i], arr[i] = arr[i], arr[n-1-i]
+
+        return arr
+    
 array = Solution()
 
-print(array.reverseWord('Rahul'))
+print(array.reverseArray([1,2,3,4,5,6]))
