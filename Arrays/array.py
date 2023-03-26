@@ -13,7 +13,7 @@ class Solution:
                 mini = item
         return maxi+mini
     
-    # Reverse an array or string
+    # Reverse an string
     def reverseWord(self,s):
         # My solution
         arr = []
@@ -24,7 +24,8 @@ class Solution:
 
         # Other solution(Best)
         # return s[::-1]
-    
+
+    # Reverse an array
     def reverseArray(self,arr):
         n = len(arr)
         for i in range(n//2):
@@ -33,6 +34,7 @@ class Solution:
 
         return arr
     
+    # Maximum Subarray in given array
     def maxSubArray(self, nums):
         maximum = 0
         if len(nums) <2:
@@ -43,7 +45,7 @@ class Solution:
                 cum_sum += nums[j]
                 maximum = max( maximum, cum_sum)
         return maximum
-    
+    # Contains Duplicate
     def containsDuplicate(self, nums) -> bool:
         dic = set(nums)
         return len(dic) != len(nums)
