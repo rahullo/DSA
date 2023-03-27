@@ -50,6 +50,17 @@ class Solution:
         dic = set(nums)
         return len(dic) != len(nums)
     
+    def chocolateDistribution(self, nums, m):
+        nums.sort()
+        min_diff = nums[len(nums)-1]
+        for i in range(len(nums)-m+1):
+            if nums[i+m-1] - nums[i] < min_diff:
+                min_diff = nums[i+m-1] - nums[i]
+            
+        return min_diff
+    
+    # Search in Rotated Sorted Array
+    
 array = Solution()
 
-print(array.containsDuplicate([1,2,3,4,2]))
+print(array.chocolateDistribution([12, 4, 7, 9, 2, 23, 25, 41, 30, 40, 28, 42, 30, 44, 48, 43, 50], 7))
