@@ -80,7 +80,36 @@ class Solution:
                     r = m - 1
 
         return -1
+    
+    # The next permutation
+    def nextPermutation(self, nums):
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+
+        i = n - 2
+        while i >= 0:
+            if nums[i] < nums[i + 1]:
+                break
+            i -= 1
+
+        if i >= 0:
+            for j in range(n - 1, i, -1):
+                if nums[j] > nums[i]:
+                    nums[i], nums[j] = nums[j], nums[i]
+                    break
+
+        def reverse(nums, l, r: int) -> None:
+            while l < r:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+                r -= 1
+
+        reverse(nums, i + 1, len(nums) - 1)
+        return nums
+    
 
 array = Solution()
 
-print(array.reverseSearch([4,5,6,7,0,1,2], 3))
+print(array.nextPermutation([3, 1, 2]))
