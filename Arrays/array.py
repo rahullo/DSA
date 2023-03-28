@@ -113,7 +113,16 @@ class Solution:
         reverse(nums, i + 1, len(nums) - 1)
         return nums
     
+    # Best time to buy and sell stock
+    def maxProfit(self, prices):
+        mini = prices[0]
+        profit = 0
+        for price in prices:
+            cost = price - mini
+            profit = max(cost, profit)
+            mini = min(mini, price)
+        return profit
 
 array = Solution()
 
-print(array.nextPermutation([4, 3, 5, 2, 1]))
+print(array.maxProfit([7, 1, 5, 3, 6, 4]))
