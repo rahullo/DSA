@@ -94,11 +94,15 @@ class Solution:
                 break
             i -= 1
 
+        print(i)
+
         if i >= 0:
             for j in range(n - 1, i, -1):
                 if nums[j] > nums[i]:
                     nums[i], nums[j] = nums[j], nums[i]
                     break
+        
+        print(nums)
 
         def reverse(nums, l, r: int) -> None:
             while l < r:
@@ -112,4 +116,4 @@ class Solution:
 
 array = Solution()
 
-print(array.nextPermutation([3, 1, 2]))
+print(array.nextPermutation([4, 3, 5, 2, 1]))
