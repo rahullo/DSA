@@ -122,7 +122,16 @@ class Solution:
             profit = max(cost, profit)
             mini = min(mini, price)
         return profit
+    
+    # Kth largest element in an array
+    def findKthLargest(self, nums, k):
+        nums.sort()
+        return nums[(len(nums))-k]
+
+
+
+    
 
 array = Solution()
 
-print(array.maxProfit([7, 1, 5, 3, 6, 4]))
+print(array.findKthLargest([3,2,3,1,2,4,5,5,6], 4))
