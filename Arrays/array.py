@@ -143,23 +143,22 @@ class Solution:
         return ans
     
     def productExceptSelf2(self, nums):
-        ans = []
-        prod = abs(nums[0])
-        contain_zero = False
-        for item in nums:
-            if item == 0:
-                contain_zero = True
-            prod = (prod * item) if item != 0 else prod
-        
-        for item in nums:
-            if contain_zero:
-                if item != 0:
-                    ans.append(0)
-                elif item == 0:
-                    ans.append(prod)
-            else:
-                ans.append(int(prod/item))
-        return ans
+        n = len(nums)
+        prefix = [1] * n  # Prefix product
+        suffix = [1] * n  # Suffix product
+        print(prefix)
+        print(suffix)
+        for i in range(1, n):
+            prefix[i] = prefix[i - 1] * nums[i - 1]
+
+        for i in reversed(range(n - 1)):
+            suffix[i] = suffix[i + 1] * nums[i + 1]
+        print('\n')
+        print(prefix)
+        print(suffix)
+        print('\n')
+
+        return [prefix[i] * suffix[i] for i in range(n)]
 
     
 
