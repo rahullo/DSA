@@ -141,9 +141,28 @@ class Solution:
             ans.append(prod)
 
         return ans
+    
+    def productExceptSelf2(self, nums):
+        ans = []
+        prod = abs(nums[0])
+        contain_zero = False
+        for item in nums:
+            if item == 0:
+                contain_zero = True
+            prod = (prod * item) if item != 0 else prod
+        
+        for item in nums:
+            if contain_zero:
+                if item != 0:
+                    ans.append(0)
+                elif item == 0:
+                    ans.append(prod)
+            else:
+                ans.append(int(prod/item))
+        return ans
 
     
 
 array = Solution()
 
-print(array.productExceptSelf(nums))
+print(array.productExceptSelf2([1, 2, 3, 4]))
