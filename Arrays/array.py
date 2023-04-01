@@ -187,9 +187,21 @@ class Solution:
                 ans[i].append(original[x])
                 x+=1
         return ans
+    
+    def construct2Darr(self, original, m, n):
+        if len(original) != m * n:
+            return []
+
+        ans = [[0] * n for _ in range(m)]
+
+        for i, num in enumerate(original):
+            print(i, num, "     ", i//n, i%n)
+            ans[i // n][i % n] = num
+
+        return ans
 
 array = Solution()
 
-print(array.construct2DArray([1, 2, 3, 4], 2, 2))
+print(array.construct2Darr([1, 2, 3, 4], 2, 2))
 # print(array.maximumProduct([-2, 0, -1]))
 
