@@ -193,15 +193,46 @@ class Solution:
             return []
 
         ans = [[0] * n for _ in range(m)]
-
+        print(ans)
         for i, num in enumerate(original):
             print(i, num, "     ", i//n, i%n)
             ans[i // n][i % n] = num
 
         return ans
+    
+    def matrixReshape(self, mat, r, c):
+        m = len(mat)
+        n = len(mat[0])
+
+        if m*n != r*c:
+            return mat
+
+        new_mat = []
+        for i in range(m):
+            for j in range(n):
+                new_mat.append(mat[i][j])
+
+        print(new_mat)
+
+        return self.construct2Darr(new_mat, r, c)
+    
+    def matrixReshape2(self, mat, r, c):
+        if mat == [] or r * c != len(mat) * len(mat[0]):
+            return mat
+
+        ans = [[0 for j in range(c)] for i in range(r)]
+        k = 0
+
+        for row in mat:
+            for num in row:
+                ans[k // c][k % c] = num
+                k += 1
+
+        return ans
 
 array = Solution()
 
-print(array.construct2Darr([1, 2, 3, 4], 2, 2))
+# print(array.construct2Darr([1, 2, 3, 4], 2, 2))
+print(array.matrixReshape([[1, 2], [3, 4]], 1, 4))
 # print(array.maximumProduct([-2, 0, -1]))
 
