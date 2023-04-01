@@ -232,7 +232,5 @@ class Solution:
 
 array = Solution()
 
-# print(array.construct2Darr([1, 2, 3, 4], 2, 2))
 print(array.matrixReshape2([[1, 2], [3, 4]], 1, 4))
-# print(array.maximumProduct([-2, 0, -1]))
 
