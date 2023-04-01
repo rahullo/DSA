@@ -159,13 +159,6 @@ class Solution:
         return [prefix[i] * suffix[i] for i in range(n)]
     
     def maxProduct(self, nums):
-        maxPro = 1
-        ans = 1
-        for item in nums:
-            maxPro = max(item , maxPro, item * maxPro)
-        return maxPro
-    
-    def maxProduct(self, nums):
         ans = nums[0]
         prevMin = nums[0]
         prevMax = nums[0]
@@ -179,10 +172,13 @@ class Solution:
 
         return ans
 
-    
+    def maximumProduct(self, nums):
+        nums.sort()
+        return max(nums[0]* nums[1]* nums[-1], nums[-1]* nums[-2]* nums[-3])
+   
 
 array = Solution()
 
-print(array.maxProduct([2, 3, -2, 4]))
-print(array.maxProduct([-2, 0, -1]))
+print(array.maximumProduct([-100,-98,-1,2,3,4]))
+# print(array.maximumProduct([-2, 0, -1]))
 
