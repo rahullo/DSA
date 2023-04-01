@@ -176,9 +176,20 @@ class Solution:
         nums.sort()
         return max(nums[0]* nums[1]* nums[-1], nums[-1]* nums[-2]* nums[-3])
    
+    def construct2DArray(self, original, m, n):
+        if len(original) != m*n:
+            return []
+        ans = []
+        x = 0
+        for i in range(m):
+            ans.append([])
+            for j in range(n):
+                ans[i].append(original[x])
+                x+=1
+        return ans
 
 array = Solution()
 
-print(array.maximumProduct([-100,-98,-1,2,3,4]))
+print(array.construct2DArray([1, 2, 3, 4], 2, 2))
 # print(array.maximumProduct([-2, 0, -1]))
 
