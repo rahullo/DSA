@@ -159,9 +159,41 @@ class Solution:
         print('\n')
 
         return [prefix[i] * suffix[i] for i in range(n)]
+    
+    def maxProduct(self, nums):
+        maxPro = 1
+        ans = 0
+        for item in nums:
+            if maxPro > item * maxPro:
+                ans = max(maxPro, ans)
+                continue
+            maxPro = max(maxPro, item * maxPro)
+            
+        ans if ans != 0 else 0
+        return ans
+    
+    def maxProduct2(self, nums):
+        ans = nums[0]
+        prevMin = nums[0]
+        prevMax = nums[0]
+
+        for i in range(1, len(nums)):
+            print("prevMin",prevMin, "prevMax",prevMax)
+            mini = prevMin * nums[i]
+            print("mini", mini)
+            maxi = prevMax * nums[i]
+            print("maxi",maxi)
+            prevMin = min(nums[i], mini, maxi)
+            prevMax = max(nums[i], mini, maxi)
+            ans = max(ans, prevMax)
+            print("\n")
+
+        return ans
 
     
 
 array = Solution()
 
-print(array.productExceptSelf2([1, 2, 3, 4]))
+print(array.maxProduct2([2, 3, -2, 4]))
+# print(array.maxProduct2([-2, 0, -1]))
+
