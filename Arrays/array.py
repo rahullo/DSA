@@ -244,8 +244,23 @@ class Solution:
             l+=1
             r-=1
         return True
+    
+
+    def validPalindrome(self, s):
+        l = 0
+        r = len(s) -1 
+        de = 0
+        while l < r:
+            if s[l] != s[r]:
+                r-=1
+                if de > 1:
+                    return False
+                de +=1
+            l +=1
+            r -=1
+        return True
 
 array = Solution()
 
-print(array.isPalindrome("race a car"))
+print(array.validPalindrome("abcdba"))
 
