@@ -276,5 +276,5 @@ class Solution:
 
 array = Solution()
 
-print(array.isAnagram("aacc", "ccac"))
+print(array.isAnagram("aaa", "ccac"))
 
