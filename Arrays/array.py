@@ -229,8 +229,23 @@ class Solution:
                 k += 1
 
         return ans
+    
+    def isPalindrome(self, string):
+        l = 0
+        r = len(string)-1
+
+        while l < r:
+            while l < r and not string[l].isalnum():
+                l+=1
+            while l < r and not string[r].isalnum():
+                r-=1
+            if string[l].lower() != string[r].lower():
+                return False
+            l+=1
+            r-=1
+        return True
 
 array = Solution()
 
-print(array.matrixReshape2([[1, 2], [3, 4]], 1, 4))
+print(array.isPalindrome("race a car"))
 
