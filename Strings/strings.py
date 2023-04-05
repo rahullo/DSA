@@ -42,6 +42,32 @@ class String():
                 return False
         return True
     
+    def isValid(self, s):
+        stack = []
+        
+        mapping = {
+            '(':')',
+            '[':']',
+            '{':'}'            
+        }
+        
+        for char in s:
+            print(char)
+            if char in mapping.keys():
+                print("First IF")
+                stack.append(mapping[char])
+            elif not stack or stack[-1]!=char:
+                print("Second IF")
+                return False
+            else:
+                print("Third IF")
+                stack.pop()
+        
+        return len(stack)==0
+    
 string = String()
 
-print(string.isPalindrome("hannah"))
+# print(string.isValid("()"))
+# print(string.isValid("()[]{}"))
+# print(string.isValid("(]"))
+print(string.isValid("({([])})"))
