@@ -88,11 +88,5 @@ class String():
                     
 
 
-
-
 string = String()
-
-# print(string.isValid("()"))
-# print(string.isValid("()[]{}"))
-# print(string.isValid("(]"))
 print(string.longestCommonPrefix(["flower","flow","flight"]))
