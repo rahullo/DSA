@@ -85,8 +85,40 @@ class String():
                     return strs[0][0:i]
                 
         return strs[0]
+    
+    def dialingNumber(self, string):
+        stri = ["2", "22", "222",
+       "3", "33", "333",
+       "4", "44", "444",
+       "5", "55", "555",
+       "6", "66", "666",
+       "7", "77", "777", "7777",
+       "8", "88", "888",
+       "9", "99", "999", "9999"]
+        n = len(string)
+        ans = ""
+
+        for i in range(n):
+
+            if string[i] == " ":
+                ans = ans + "0"
+            else:
+                posi = ord(string[i]) - ord("A")
+                ans += stri[posi]
+
+        return ans
+    
+    def repeatingChar(self, string):
+        for char in string:
+            count = 0
+            for char2 in string:
+                if char == char2:
+                    count +=1
+            if count > 1:
+                print(char, count)
+            count = 0
                     
 
 
 string = String()
-print(string.longestCommonPrefix(["flower","flow","flight"]))
+print(string.repeatingChar("GEEKSFORGEEKS"))
