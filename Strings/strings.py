@@ -29,6 +29,19 @@ class String():
             r -=1
         return True
     
+    def isAnagram(self, s, t) -> bool:
+        from collections import Counter
+        if len(s) != len(t):
+            return False
+        
+        dict = Counter(s)
+
+        for c in t:
+            dict[c] -= 1
+            if dict[c] < 0:
+                return False
+        return True
+    
 string = String()
 
 print(string.isPalindrome("hannah"))
