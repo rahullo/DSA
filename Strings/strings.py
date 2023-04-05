@@ -65,9 +65,18 @@ class String():
         
         return len(stack)==0
     
+    def removeConsecutiveCharacter(self, S):
+        s2 = ""
+        prev = None
+        
+        for char in S:
+            if prev != char:
+                s2+=char
+                prev = char
+        return s2
 string = String()
 
 # print(string.isValid("()"))
 # print(string.isValid("()[]{}"))
 # print(string.isValid("(]"))
-print(string.isValid("({([])})"))
+print(string.removeConsecutiveCharacter("rahhullo"))
