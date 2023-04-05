@@ -74,9 +74,25 @@ class String():
                 s2+=char
                 prev = char
         return s2
+    
+    def longestCommonPrefix(self, strs):
+        if len(strs) < 1:
+            return ""
+        
+        for i in range(len(strs[0])):
+            for j in range(1, len(strs)):
+                if i == len(strs[j]) or strs[j][i] != strs[0][i]:
+                    return strs[0][0:i]
+                
+        return strs[0]
+                    
+
+
+
+
 string = String()
 
 # print(string.isValid("()"))
 # print(string.isValid("()[]{}"))
 # print(string.isValid("(]"))
-print(string.removeConsecutiveCharacter("rahhullo"))
+print(string.longestCommonPrefix(["flower","flow","flight"]))
