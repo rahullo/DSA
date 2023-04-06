@@ -117,8 +117,24 @@ class String():
             if count > 1:
                 print(char, count)
             count = 0
+
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        from collections import Counter
+        ans = 0
+        count = Counter()
+        # print(count)
+        l = 0
+        for r, c in enumerate(s):
+          count[c] += 1
+          while count[c] > 1:
+            count[s[l]] -= 1
+            l += 1
+          ans = max(ans, r - l + 1)
+          print(c, count, s[l-1])
+
+        return ans
                     
 
 
 string = String()
-print(string.repeatingChar("GEEKSFORGEEKS"))
+print(string.lengthOfLongestSubstring("GEEKSFORGEEKS"))
