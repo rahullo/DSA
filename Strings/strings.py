@@ -1,3 +1,6 @@
+import collections
+
+
 class String():
 
     def isPalindrome(self, string):
@@ -151,7 +154,14 @@ class String():
 
         return ans
 
+    def groupAnagrams(self, strs):
+        dict = collections.defaultdict(list)
+        print(dict)
+        for str in strs:
+            key = ''.join(sorted(str))
+            dict[key].append(str)
+        return dict.values()
 
 
 string = String()
-print(string.characterReplacement("ABAB", 2))
+print(string.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
