@@ -161,7 +161,26 @@ class String():
             key = ''.join(sorted(str))
             dict[key].append(str)
         return dict.values()
+    
+    def longestPalindrome(self, s: str) -> str:
+        substrings = []
+        for i in range(len(s)):
+            for j in range(len(s)):
+                if s[i:j+1]!='':
+                    substrings.append(s[i:j+1])
+        maxi = 0
+        ans = 0
+
+        for i in range(len(substrings)):
+            subStr = substrings[i]
+            if self.isPalindrome(subStr):
+                if maxi < len(subStr):
+                    ans = subStr
+                    maxi = len(subStr)
+
+        return ans
+
 
 
 string = String()
-print(string.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+print(string.longestPalindrome("babad"))
