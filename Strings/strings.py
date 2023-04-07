@@ -179,8 +179,26 @@ class String():
                     maxi = len(subStr)
 
         return ans
+    
+    def countSubstrings(self, s):
+        substrings = []
+        for i in range(len(s)):
+            for j in range(len(s)):
+                if s[i:j+1]!='':
+                    substrings.append(s[i:j+1])
+        setSubString = collections.Counter(substrings)
+
+        print(setSubString)
+        ans = 0
+        for item in setSubString:
+            if self.isPalindrome(item):
+                ans+= setSubString[item]
+        return ans
+
 
 
 
 string = String()
-print(string.longestPalindrome("babad"))
+print(string.countSubstrings("aaa"))
+
+
