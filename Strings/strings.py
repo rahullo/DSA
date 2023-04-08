@@ -199,12 +199,10 @@ class String():
     def countSubstrings2(self, s: str) -> int:
         def extendPalindromes(l: int, r: int) -> int:
             count = 0
-
             while l >= 0 and r < len(s) and s[l] == s[r]:
                 count += 1
                 l -= 1
                 r += 1
-
             return count
 
         ans = 0
@@ -218,6 +216,6 @@ class String():
 
 
 string = String()
-print(string.countSubstrings("aaa"))
+print(string.countSubstrings2("aaa"))
 
 
