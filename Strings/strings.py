@@ -216,6 +216,6 @@ class String():
 
 
 string = String()
-print(string.countSubstrings2("aaa"))
+print(string.countSubstrings2("aab"))
 
 
