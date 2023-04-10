@@ -41,11 +41,33 @@ class Array2D:
                 matrix[i][item[1]] = 0
             for j in range(cols):
                 matrix[item[0]][j] = 0
-        print(target)
         print(matrix)
-[]
+
+    def spiralOrder(self, matrix):
+        rows = len(matrix)
+        cols = len(matrix[0])
+        left, top = 0, 0
+        right = cols-1
+        bottom = rows - 1
+        ans = []
+
+        for i in range(right+1):
+            ans.append(matrix[top][i])
+        top+=1
+        for i in range(bottom+1):
+            ans.append(matrix[top][i])
+        right-=1
+        for i in range(right+1):
+            ans.append(matrix[top][i])
+        top+=1
+        for i in range(right+1):
+            ans.append(matrix[top][i])
+        top+=1
+
+
+
 
 sol = Array2D()
-m1 = [[1,1,1],[1,0,1],[1,1,1]]
-m2 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]] #[[0,0,0,0],[0,4,5,0],[0,3,1,0]]
+m1 = [[1,2,3],[4,5,6],[7,8,9]] #[1,2,3,6,9,8,7,4,5]
+m2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]  #[1,2,3,4,8,12,11,10,9,5,6,7]
 sol.setZeroes(m2)
