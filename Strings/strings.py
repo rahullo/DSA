@@ -213,9 +213,9 @@ class String():
 
         return ans
 
-
-
 string = String()
-print(string.countSubstrings2("aab"))
+
+
+print(string.countSubstrings2('Rahul Lohra'))
 
 
