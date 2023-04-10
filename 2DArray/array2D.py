@@ -15,7 +15,6 @@ class Array2D:
             # for first ROW lines and line - ROW for
             # remaining lines
             start_col = max(0, line - ROW)
-            # print(start_col, 0, line - ROW)
     
             # Get count of elements in this line.
             # The count of elements is equal to
@@ -24,8 +23,7 @@ class Array2D:
     
             # Print elements of this line
             for j in range(0, count):
-                print(matrix[min(ROW, line) - j - 1]
-                            [start_col + j], end="\t")
+                print(matrix[min(ROW, line) - j - 1][start_col + j], end="\t")
     
             print()
 
