@@ -26,6 +26,26 @@ class Array2D:
                 print(matrix[min(ROW, line) - j - 1][start_col + j], end="\t")
     
             print()
+        
+    def setZeroes(self, matrix):
+        rows = len(matrix)
+        cols = len(matrix[0])
+        target = []
+        for i in range(rows):
+            for j in range(cols):
+                if matrix[i][j] == 0:
+                    target.append([i,j])
+        
+        for item in target:
+            for i in range(rows):
+                matrix[i][item[1]] = 0
+            for j in range(cols):
+                matrix[item[0]][j] = 0
+        print(target)
+        print(matrix)
+[]
 
 sol = Array2D()
-sol.diagonalOrder(m1)
+m1 = [[1,1,1],[1,0,1],[1,1,1]]
+m2 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]] #[[0,0,0,0],[0,4,5,0],[0,3,1,0]]
+sol.setZeroes(m2)
