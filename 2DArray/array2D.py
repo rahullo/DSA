@@ -108,10 +108,19 @@ class Array2D:
 
         return ans
 
+    def rotate(self, matrix):
+        for i in range(len(matrix)):
+            le = len(matrix)-1
+            for j in range(len(matrix[0])):
+                print(matrix[i][j],"(",i,j,")", "--", matrix[le][i],"(" ,le, i, ")")
+                matrix[i][j] = matrix[le][i]
+                le-=1
+        return matrix
+
 
 
 
 sol = Array2D()
-m1 = [[1,2,3],[4,5,6],[7,8,9]] #[1,2,3,6,9,8,7,4,5]
-m2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]  #[1,2,3,4,8,12,11,10,9,5,6,7]
-print(sol.spiralOrder2(m1))
+m1 = [[1,2,3],[4,5,6],[7,8,9]] # [[7,4,1],[8,5,2],[9,6,3]]
+m2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]  # [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+print(sol.rotate(m1))
