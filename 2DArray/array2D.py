@@ -109,12 +109,12 @@ class Array2D:
         return ans
 
     def rotate(self, matrix):
+        matrix.reverse()
+        print (matrix)
         for i in range(len(matrix)):
-            le = len(matrix)-1
-            for j in range(len(matrix[0])):
-                print(matrix[i][j],"(",i,j,")", "--", matrix[le][i],"(" ,le, i, ")")
-                matrix[i][j] = matrix[le][i]
-                le-=1
+            for j in range(i+1, len(matrix)):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
         return matrix
 
 
