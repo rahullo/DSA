@@ -137,7 +137,7 @@ class Array2D:
                 dfs(i, j + 1, s + 1) or \
                 dfs(i, j - 1, s + 1)
             board[i][j] = cache
-
+            print(board)
             return isExist
 
         return any(dfs(i, j, 0) for i in range(m) for j in range(n))
@@ -146,4 +146,4 @@ class Array2D:
 sol = Array2D()
 m1 = [[1,2,3],[4,5,6],[7,8,9]] # [[7,4,1],[8,5,2],[9,6,3]]
 m2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]  # [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
-print(sol.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"ABCCED"))
+print(sol.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"ABCC"))
