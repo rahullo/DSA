@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Solution:
 
     # Maximum and Minimum Element in an Array
@@ -229,10 +231,17 @@ class Solution:
                 k += 1
 
         return ans
-    
+    def topKFrequent(self, nums, k):
+        counter = Counter(nums)
+        ans = []
+        print(counter)
+        for key, value in counter.items():
+            ans.append(key)
+            print(key,value)
+        return ans[:k]
 
 
 array = Solution()
 
-print(array.isAnagram("aaa", "ccac"))
+print(array.topKFrequent([3,0,1,0], 1))
 
