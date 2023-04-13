@@ -117,10 +117,33 @@ class Array2D:
 
         return matrix
 
+    def exist(self, board, word):
+        m = len(board)
+        n = len(board[0])
 
+        def dfs(i: int, j: int, s: int) -> bool:
+            if i < 0 or i == m or j < 0 or j == n:
+                return False
+            if board[i][j] != word[s] or board[i][j] == '*':
+                return False
+            if s == len(word) - 1:
+                return True
+
+            cache = board[i][j]
+            board[i][j] = '*'
+            isExist = \
+                dfs(i + 1, j, s + 1) or \
+                dfs(i - 1, j, s + 1) or \
+                dfs(i, j + 1, s + 1) or \
+                dfs(i, j - 1, s + 1)
+            board[i][j] = cache
+
+            return isExist
+
+        return any(dfs(i, j, 0) for i in range(m) for j in range(n))
 
 
 sol = Array2D()
 m1 = [[1,2,3],[4,5,6],[7,8,9]] # [[7,4,1],[8,5,2],[9,6,3]]
 m2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]  # [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
-print(sol.rotate(m1))
+print(sol.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"ABCCED"))
