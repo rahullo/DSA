@@ -78,6 +78,8 @@ def addingTwoMatrixes(mat1, mat2):
 
 # print(addingTwoMatrixes(mat1, mat2))
 
+
+# provide the matrix in sequence
 def subtractingTwoMatrixes(mat1, mat2):
     m = len(mat1)
     n = len(mat1[0])
