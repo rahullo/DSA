@@ -60,4 +60,20 @@ rabin = RabinKarp()
 text = "ABCCDDAEFGDHAODSHFDGFDSFJHASDFIUOAHWHFDSKJBVDSHVGAISHSOFJSADFJDSJKHBVDSVJNAOISDUHGDSHGAJLALDSFJHDS"
 pattern = "JBVDSHVGA"
 q = 13
-print(rabin.search(pattern, text, q))
+# print(rabin.search(pattern, text, q))
+
+mat1 = [[2, 4, 6],[3,5,7],[4,6,8]]
+mat2 = [[1,2,3], [3,4,5], [4,5,6]]
+
+def addingTwoMatrixes(mat1, mat2):
+    m = len(mat1)
+    n = len(mat1[0])
+    ans = [[] for i in range(m)]
+    
+    for i in range(m):
+        for j in range(n):
+            ans[i].append(mat1[i][j] + mat2[i][j])
+
+    return ans
+
+print(addingTwoMatrixes(mat1, mat2))
