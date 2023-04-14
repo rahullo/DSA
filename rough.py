@@ -76,4 +76,17 @@ def addingTwoMatrixes(mat1, mat2):
 
     return ans
 
-print(addingTwoMatrixes(mat1, mat2))
+# print(addingTwoMatrixes(mat1, mat2))
+
+def subtractingTwoMatrixes(mat1, mat2):
+    m = len(mat1)
+    n = len(mat1[0])
+    ans = [[] for i in range(m)]
+    
+    for i in range(m):
+        for j in range(n):
+            ans[i].append(mat1[i][j] - mat2[i][j])
+
+    return ans
+
+print(subtractingTwoMatrixes(mat1, mat2))
