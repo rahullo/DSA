@@ -109,4 +109,4 @@ def multiply_matrices(mat1, mat2):
         ans.append(row)
     return ans
 
-print(multiply_matrices([[2,2],[2,2]],[[3,3],[3,3]]))
+print(multiply_matrices(mat1, mat2))
