@@ -91,4 +91,22 @@ def subtractingTwoMatrixes(mat1, mat2):
 
     return ans
 
-# print(subtractingTwoMatrixes(mat1, mat2))
+
+def multiply_matrices(mat1, mat2):
+
+    if len(mat1[0]) != len(mat2):
+        raise ValueError("The two matrices can't be multiplied!!")
+
+    ans = []
+
+    for i in range(len(mat1)):
+        row = []
+        for j in range(len(mat2[0])):
+            product = 0
+            for k in range(len(mat1[0])):
+                product += mat1[i][k] * mat2[k][j]
+            row.append(product)
+        ans.append(row)
+    return ans
+
+print(multiply_matrices([[2,2],[2,2]],[[3,3],[3,3]]))
