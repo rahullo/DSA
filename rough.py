@@ -63,7 +63,7 @@ q = 13
 # print(rabin.search(pattern, text, q))
 
 mat1 = [[2, 4, 6],[3,5,7],[4,6,8]]
-mat2 = [[1,2,3], [3,4,5], [4,5,6]]
+mat2 = [[1,2,3], [3,1,5], [4,5,6]]
 
 def addingTwoMatrixes(mat1, mat2):
     m = len(mat1)
