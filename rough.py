@@ -110,15 +110,3 @@ def multiply_matrices(mat1, mat2):
     return ans
 
 # print(multiply_matrices(mat1, mat2))
-
-import pygame
-
-# Load the song
-song = pygame.mixer.Sound("song.mp3")
-
-# Play the song
-song.play()
-
-# Wait for the song to finish playing
-while song.get_busy():
-    pass
