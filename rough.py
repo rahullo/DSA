@@ -92,7 +92,7 @@ def subtractingTwoMatrixes(mat1, mat2):
     return ans
 
 
-def multiply_matrices(mat1, mat2):
+def multiplyMmatrices(mat1, mat2):
 
     if len(mat1[0]) != len(mat2):
         raise ValueError("The two matrices can't be multiplied!!")
