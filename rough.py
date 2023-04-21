@@ -114,4 +114,11 @@ def halfPiramid1(rows):
     for i in range(1, rows+1):
         print(i*"*")
 
-halfPiramid1(5)
+# halfPiramid1(5)
+
+def invertedHalfPir(rows):
+    for i in range(rows, 0, -1):
+        print(i * "*")
+
+    
+invertedHalfPir(5)
