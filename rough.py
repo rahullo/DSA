@@ -110,3 +110,8 @@ def multiplyMmatrices(mat1, mat2):
     return ans
 
 # print(multiply_matrices(mat1, mat2))
+def halfPiramid1(rows):
+    for i in range(1, rows+1):
+        print(i*"*")
+
+halfPiramid1(5)
