@@ -121,4 +121,16 @@ def invertedHalfPir(rows):
         print(i * "*")
 
     
-invertedHalfPir(5)
+# invertedHalfPir(5)
+
+def piramid(rows):
+    i = 1
+    j = rows-1
+
+    while i <= rows and j >= 0:
+        print(j * " ", end='')
+        print(i*"*")
+        i+=1
+        j-=1
+
+piramid(5)
