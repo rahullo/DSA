@@ -124,13 +124,12 @@ def invertedHalfPir(rows):
 # invertedHalfPir(5)
 
 def piramid(rows):
-    i = 1
     j = rows-1
-
-    while i <= rows and j >= 0:
+    star = 1
+    for i in range(rows):
         print(j * " ", end='')
-        print(i*"*")
-        i+=1
+        print((i+star) * "*")
         j-=1
+        star +=2
 
 piramid(5)
