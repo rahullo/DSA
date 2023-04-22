@@ -123,13 +123,17 @@ def invertedHalfPir(rows):
     
 # invertedHalfPir(5)
 
-def piramid(rows):
-    j = rows-1
-    star = 1
-    for i in range(rows):
-        print(j * " ", end='')
-        print((i+star) * "*")
-        j-=1
-        star +=2
+def print_full_pyramid(height):
+  """Prints a full pyramid of stars.
 
-piramid(5)
+  Args:
+    height: The height of the pyramid.
+  """
+  for i in range(height):
+    for j in range(height - i):
+      print(" ", end="")
+    for j in range(i + 1):
+      print("*", end=" ")
+    print()
+
+print_full_pyramid(5)
