@@ -36,6 +36,36 @@ arr1 = [4,2,1,3]
 for item in arr1:
     list.append(item)
 
-list.printList()
 
 
+class Solution:
+    def insertionSortListMy(self, head):
+        arr = []
+        curr_node = head
+
+        while curr_node != None:
+            arr.append(curr_node.val)
+            curr_node = curr_node.next
+        
+        print(arr)
+
+        l = len(arr)
+        new_head = Node()
+        curr = new_head
+        arr.sort()
+
+        for item in arr:
+            curr.next = Node(item)
+            curr = curr.next
+        
+        return new_head.next
+        
+
+
+
+sol = Solution()
+newhead = sol.insertionSortList(list.head)
+
+while newhead != None:
+    print(newhead.val)
+    newhead = newhead.next
