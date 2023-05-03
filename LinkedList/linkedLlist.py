@@ -80,7 +80,3 @@ class Solution:
 
 sol = Solution()
 newhead = sol.insertionSortList(list.head)
-
-while newhead != None:
-    print(newhead.val)
-    newhead = newhead.next
