@@ -291,12 +291,22 @@ class Solution:
         #         ans[1].append(item)
         
         # return ans
+
         set1 = set(nums1)
         set2 = set(nums2)
         return [set1 - set2, set2 - set1]
+    
+    def intersection(self, nums):
+        count = [0] * 1001
+
+        for A in nums:
+            for a in A:
+                count[a] += 1
+
+        return [i for i, c in enumerate(count) if c == len(nums)]
 
 
 array = Solution()
 
-print(array.findDifference([1,2,3,3], [1,1,2,2]))
+print(array.intersection([[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]))
 
