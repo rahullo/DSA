@@ -231,6 +231,8 @@ class Solution:
                 k += 1
 
         return ans
+    
+
     def topKFrequent(self, nums, k):
         count = {}
         freq = [[] for i in range(len(nums) + 1)]
@@ -250,9 +252,27 @@ class Solution:
                 res.append(n)
                 if len(res) == k:
                     return res
+                
+
+    def threeSumClosest(self, nums, target):
+        if len(nums) < 3:
+            return None
+        
+    def average(self, salary):
+        salary.sort()
+
+        n = len(salary)
+        sum = 0
+
+        for i in range(1, n-1):
+            sum += salary[i]
+        
+        return sum / (n-2)
+
+        
 
 
 array = Solution()
 
-print(array.topKFrequent([3,0,1,0], 1))
+print(array.average([3000,1000,2000]))
 
