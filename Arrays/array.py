@@ -268,11 +268,19 @@ class Solution:
             sum += salary[i]
         
         return sum / (n-2)
+    
+    def arraySign(self, nums):
+        prod = 1
 
-        
+        for item in nums:
+            if item == 0:
+                return 0
+            elif item < 0:
+                prod = -prod
+        return prod        
 
 
 array = Solution()
 
-print(array.average([3000,1000,2000]))
+print(array.arraySign([-1,-2,-3,-4,3,2,1]))
 
