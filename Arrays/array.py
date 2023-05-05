@@ -278,9 +278,25 @@ class Solution:
             elif item < 0:
                 prod = -prod
         return prod        
+    
+    def findDifference(self, nums1, nums2):
+        # ans = [[],[]]
+
+        # for item in nums1:
+        #     if item not in nums2 and item not in ans[0]:
+        #         ans[0].append(item)
+        
+        # for item in nums2:
+        #     if item not in nums1 and item not in ans[1]:
+        #         ans[1].append(item)
+        
+        # return ans
+        set1 = set(nums1)
+        set2 = set(nums2)
+        return [set1 - set2, set2 - set1]
 
 
 array = Solution()
 
-print(array.arraySign([-1,-2,-3,-4,3,2,1]))
+print(array.findDifference([1,2,3,3], [1,1,2,2]))
 
