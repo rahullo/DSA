@@ -139,6 +139,6 @@ def print_full_pyramid(height):
 # print_full_pyramid(5)
 
 
-a = 144
+a = 9
 
-print(a >> 3)
+print(a << 3)
