@@ -304,9 +304,56 @@ class Solution:
                 count[a] += 1
 
         return [i for i, c in enumerate(count) if c == len(nums)]
+    
+    def divide(self, dividend, divisor):
+        # div = False
+        # divi = False
+        # ans = 0
+        # if dividend < 0:
+        #     dividend = -dividend
+        #     div = True
+        
+        # if divisor < 0:
+        #     divisor = -divisor
+        #     divi = True
+        
+        # while dividend > 0:
+        #     if dividend < divisor:
+        #         break
+        #     dividend = dividend - divisor
+        #     ans +=1
+        
+        # print(dividend)
+
+        # if div == True and divi == False:
+        #     return -ans
+        # elif div == False and divi == True:
+        #     return -ans
+        # elif div == True and divi == True:
+        #     return ans
+        
+        # return ans
+
+        if dividend == -2**31 and divisor == -1:
+            return 2**31 - 1
+
+        sign = -1 if (dividend > 0) ^ (divisor > 0) else 1
+        ans = 0
+        dvd = abs(dividend)
+        dvs = abs(divisor)
+
+        while dvd >= dvs:
+            k = 1
+            while k * 2 * dvs <= dvd:
+                k <<= 1
+            dvd -= k * dvs
+            ans += k
+
+        return sign * ans
+
 
 
 array = Solution()
 
-print(array.intersection([[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]))
+print(array.divide(7, -3))
 
