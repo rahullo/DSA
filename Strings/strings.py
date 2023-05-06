@@ -212,10 +212,20 @@ class String():
             ans += extendPalindromes(i, i + 1)
 
         return ans
+    
+    def strStr(self, haystack, needle):
+        hLen = len(haystack)
+        nLen = len(needle)
+
+        for i in range(hLen - nLen+1):
+            if haystack[i: i+nLen] == needle:
+                return i
+        return -1
+
 
 string = String()
 
 
-print(string.countSubstrings2('Rahul Lohra'))
+print(string.strStr('leetcode', 'code'))
 
 
