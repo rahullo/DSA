@@ -147,4 +147,14 @@ def fn(arr):
     
     return prefix
 
-print(fn([1,2,3,4,5]))
+# print(fn([1,2,3,4,5]))
+
+# arr is a list of characters
+def fnString(arr):
+    ans = []
+    for c in arr:
+        ans.append(c)
+    
+    return "".join(ans)
+
+print(fnString(['a', 'b', 'c', 'd', 'e', 'f']))
