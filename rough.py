@@ -136,4 +136,15 @@ def print_full_pyramid(height):
       print("*", end=" ")
     print()
 
-print_full_pyramid(5)
+# print_full_pyramid(5)
+
+
+# Prefix Sum
+def fn(arr):
+    prefix = [arr[0]]
+    for i in range(1, len(arr)):
+        prefix.append(prefix[-1] + arr[i])
+    
+    return prefix
+
+print(fn([1,2,3,4,5]))

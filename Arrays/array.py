@@ -388,16 +388,15 @@ class Solution:
         return sign * quotient
 
     def threeSumClosest(self, nums, target):
-
         ans = nums[0] + nums[1] + nums[2]
-
         nums.sort()
-
+        print(nums)
         for i in range(len(nums) - 2):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
             l = i + 1
             r = len(nums) - 1
+            summ = 0
             while l < r:
                 summ = nums[i] + nums[l] + nums[r]
                 if summ == target:
@@ -408,12 +407,12 @@ class Solution:
                     l += 1
                 else:
                     r -= 1
-
+            print(i, summ)
         return ans
         
 
 
 array = Solution()
 
-print(array.threeSumClosest([4,0,5,-5,3,3,0,-4,-5], -2))
+print(array.threeSumClosest([4,0,5,-5,3,3,0,-4,-5], 19))
 
