@@ -201,4 +201,48 @@ def romanToInt(s):
 
     return ans + roman[s[-1]]
 
-print(romanToInt('MCMXCIV'))
+# print(romanToInt('MCMXCIV'))
+
+def letterCombinations1(digits):
+    letters= {
+        '2': ['a', 'b', 'c'],
+        '3': ['d', 'e', 'f'],
+        '4': ['g', 'h', 'i'],
+        '5': ['j', 'k', 'l'],
+        '6': ['m', 'n', 'o'],
+        '7': ['p', 'q', 'r', 's'],
+        '8': ['t', 'u', 'v'],
+        '9': ['w', 'x', 'y', 'z'],
+    }
+
+    pairs = []
+    for i in range(len(digits)):
+        pairs.append(letters[digits[i]])
+
+    ans = []
+
+    for i in range(len(pairs)):
+        print()
+
+    return pairs
+
+
+def letterCombinations(digits):
+    if not digits:
+        return []
+
+    ans = ['']
+    digitToLetters = ['', '', 'abc', 'def', 'ghi',
+                      'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
+
+    for d in digits:
+        temp = []
+        for s in ans:
+            for c in digitToLetters[ord(d) - ord('0')]:
+                temp.append(s + c)
+        ans = temp
+
+    return ans
+
+print(letterCombinations("23"))
+print(ord('2')- ord('0'))
