@@ -264,23 +264,26 @@ def letterCombinations(digits):
 
 # print(letterCombinations("23"))
 
-
-# string = '123   '
-
-# for item in string:
-#     print(item.isnumeric())
-
-
 def myAtoi(s):
-    ans = []
-     
-    for item in s:
-        if item == '-':
-            print(s)
-            ans.append(item)
-        if item.isnumeric():
-            ans.append(item)
-    print(ans)
-    return int(''.join(ans))
+    s = s.strip()
+    if not s:
+        return 0
 
-# print(myAtoi('   -42'))       
+    sign = -1 if s[0] == '-' else 1
+    if s[0] in {'-', '+'}:
+        s = s[1:]
+
+    num = 0
+
+    for c in s:
+        if not c.isdigit():
+            break
+        num = num * 10 + ord(c) - ord('0')
+        if sign * num <= -2**31:
+            return -2**31
+        if sign * num >= 2**31 - 1:
+            return 2**31 - 1
+
+    return sign * num
+
+print(myAtoi("words and 987"))       
