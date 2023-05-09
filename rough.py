@@ -262,5 +262,25 @@ def letterCombinations(digits):
     backtrack("", digits)
     return res
 
-print(letterCombinations("23"))
-print(ord('2')- ord('0'))
+# print(letterCombinations("23"))
+
+
+# string = '123   '
+
+# for item in string:
+#     print(item.isnumeric())
+
+
+def myAtoi(s):
+    ans = []
+     
+    for item in s:
+        if item == '-':
+            print(s)
+            ans.append(item)
+        if item.isnumeric():
+            ans.append(item)
+    print(ans)
+    return int(''.join(ans))
+
+# print(myAtoi('   -42'))       
