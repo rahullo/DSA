@@ -431,7 +431,6 @@ class Solution:
                 ans[i][min] = count
                 count += 1
             print(ans)
-        print("hello",n&1)
 
         if n & 1:
             ans[n // 2][n // 2] = count
