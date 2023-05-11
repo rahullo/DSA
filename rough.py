@@ -286,4 +286,22 @@ def myAtoi(s):
 
     return sign * num
 
-print(myAtoi("words and 987"))       
+# print(myAtoi("words and 987"))
+
+
+def generateParenthesis(n):
+    ans = []
+
+    def dfs(l: int, r: int, s: str) -> None:
+        print(l, r, s)
+        if l == 0 and r == 0:
+            ans.append(s)
+        if l > 0:
+            dfs(l - 1, r, s + '(')
+        if l < r:
+            dfs(l, r - 1, s + ')')
+
+    dfs(n, n, '')
+    return ans    
+
+print(generateParenthesis(2))
