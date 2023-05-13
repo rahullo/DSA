@@ -310,7 +310,7 @@ from LinkedList import linkedLlist
 
 list = linkedLlist.Linked_List()
 
-for i in range(1, 9):
+for i in range(1, 5):
     list.append(i)
 
 list.printList()
