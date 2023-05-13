@@ -304,4 +304,20 @@ def generateParenthesis(n):
     dfs(n, n, '')
     return ans    
 
-print(generateParenthesis(2))
+# print(generateParenthesis(2))
+
+from LinkedList import linkedLlist
+
+list = linkedLlist.Linked_List()
+
+for i in range(1, 5):
+    list.append(i)
+
+list.printList()
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def swapPairs(self, head):
+        return
