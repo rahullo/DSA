@@ -463,9 +463,18 @@ class Solution:
 
         ###Optimized opproach
 
+        maxi = -1
+
+        for i in range(len(arr)-1, -1, -1):
+            temp = arr[i]
+            arr[i] = maxi
+            maxi = max(maxi, temp)
+
+        return arr
+
 
 
 array = Solution()
 
-print(array.replaceElements([400]))
+print(array.replaceElements([17,18,5,4,6,1]))
 
