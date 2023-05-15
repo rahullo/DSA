@@ -447,7 +447,25 @@ class Solution:
         #         ans.append(n)
         # return ans
 
+    def replaceElements(self, arr):
+        ### Brute force approach
+        # for i in range (len(arr)-1):
+        #     maxi = arr[i+1]
+
+        #     for j in range(i+1, len(arr)):
+        #         maxi = max(maxi, arr[j])
+
+        #     arr[i] = maxi
+        
+        # arr[-1] = -1
+
+        # return arr
+
+        ###Optimized opproach
+
+
+
 array = Solution()
 
-print(array.getConcatenation([1,2,1]))
+print(array.replaceElements([400]))
 
