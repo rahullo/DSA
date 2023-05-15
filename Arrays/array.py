@@ -435,10 +435,13 @@ class Solution:
         if n & 1:
             ans[n // 2][n // 2] = count
 
-        return ans        
+        return ans      
+
+    def getConcatenation(self, nums):
+        return nums + nums
 
 
 array = Solution()
 
-print(array.generateMatrix(3))
+print(array.getConcatenation([1,2,1]))
 
