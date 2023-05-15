@@ -310,7 +310,7 @@ from LinkedList import linkedLlist
 
 list = linkedLlist.Linked_List()
 
-for i in range(1, 5):
+for i in [7,9,6,6,7,8,3,0,9,5]:
     list.append(i)
 
 list.printList()
@@ -341,13 +341,33 @@ class Solution:
             curr = curr.next
 
         return dummy.next
+    
+    def swapNodes(self, head, k):
+        # 1. Find the kth node from the beginning of the linked list.
+        left_node = head
+        for i in range(1, k):
+            left_node = left_node.next
+
+        # 2. Find the kth node from the end of the linked list.
+        right_node = head
+        current = left_node
+        while current.next:
+            current = current.next
+            right_node = right_node.next
+
+        # 3. Swap the values of the two nodes.
+        left_node.val, right_node.val = right_node.val, left_node.val
+
+        # 4. Return the head of the linked list.
+        return head
 
 
     
 
 s = Solution()
-new_List = s.swapPairs(list.head)
+head = s.swapNodes(list.head, 5)
 
-while new_List:
-    print(new_List.val)
-    new_List = new_List.next
+print("\n")
+for i in range(10):
+    print(head.val, end=" ")
+    head = head.next
