@@ -231,11 +231,22 @@ class String():
             j+=1
         
         return i == len(s)
+    
+    # 58. Length of Last Word
+    def lengthOfLastWord(self, s: str) -> int:
+        newString = s.strip()
+        ans = 0
+        for i in range(len(newString)-1, -1, -1):
+            if newString[i] == " ":
+                return ans
+            ans+=1
+        return ans
+
 
 
 string = String()
 
 
-print(string.isSubsequence('acb', 'ahbgdc'))
+print(string.lengthOfLastWord('   fly me   to   the moon  '))
 
 
