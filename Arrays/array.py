@@ -472,9 +472,18 @@ class Solution:
 
         return arr
 
+    # 1. Two sum
+    def twoSum(self, nums, target: int):
+        prevMap = {}
 
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            prevMap[n] = i
 
 array = Solution()
 
-print(array.replaceElements([17,18,5,4,6,1]))
+print(array.twoSum([3,2, 4], 6))
+
 
