@@ -221,11 +221,21 @@ class String():
             if haystack[i: i+nLen] == needle:
                 return i
         return -1
+    
+    def isSubsequence(self, s, t):
+        i, j = 0, 0
+
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i+=1
+            j+=1
+        
+        return i == len(s)
 
 
 string = String()
 
 
-print(string.strStr('leetcode', 'code'))
+print(string.isSubsequence('acb', 'ahbgdc'))
 
 
