@@ -473,7 +473,7 @@ class Solution:
         return arr
 
     # 1. Two sum
-    def twoSum(self, nums, target: int):
+    def twoSum(self, nums, target):
         prevMap = {}
 
         for i, n in enumerate(nums):
@@ -482,8 +482,18 @@ class Solution:
                 return [prevMap[diff], i]
             prevMap[n] = i
 
+    def pascalTriangle(self, rows):
+        ans = []
+        for i in range(1, rows+1):
+            ans.append([1]*i)
+        
+        for i in range(2, rows):
+            for j in range(1, i):
+                ans[i][j] = ans[i-1][j-1] + ans[i-1][j]
+
+        return ans
 array = Solution()
 
-print(array.twoSum([3,2, 4], 6))
+print(array.pascalTriangle(5))
 
 
