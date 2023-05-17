@@ -241,12 +241,20 @@ class String():
                 return ans
             ans+=1
         return ans
+    
+    def groupAnagrams(self, strs):
+        dict = collections.defaultdict(list)
+        print(dict)
+        for str in strs:
+            key = ''.join(sorted(str))
+            dict[key].append(str)
+        return dict.values()
 
 
 
 string = String()
 
 
-print(string.lengthOfLastWord('   fly me   to   the moon  '))
+print(string.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
 
 
