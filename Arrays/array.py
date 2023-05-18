@@ -492,8 +492,20 @@ class Solution:
                 ans[i][j] = ans[i-1][j-1] + ans[i-1][j]
 
         return ans
+    
+
+    def removeElement(self, nums, val):
+        for i in range(len(nums)):
+            if nums[i] == val:
+                nums[i] = "_"
+        
+
+        return nums
+    
+
+
 array = Solution()
 
-print(array.pascalTriangle(5))
+print(array.removeElement([3,2,2,3], 2))
 
 
