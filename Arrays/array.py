@@ -498,7 +498,6 @@ class Solution:
         for i in range(len(nums)):
             if nums[i] == val:
                 nums[i] = "_"
-
         return nums
     
 
