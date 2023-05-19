@@ -258,7 +258,6 @@ class String():
             local = local.split("+")[0]
             local = local.replace(".", "")
             unique.add((local, domain))
-            print(unique)
 
         return len(unique)
 
