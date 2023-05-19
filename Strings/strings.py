@@ -250,11 +250,22 @@ class String():
             dict[key].append(str)
         return dict.values()
 
+    def numUniqueEmails(self, emails):
+        unique = set()
+
+        for email in emails:
+            local, domain = email.split("@")
+            local = local.split("+")[0]
+            local = local.replace(".", "")
+            unique.add((local, domain))
+            print(unique)
+
+        return len(unique)
 
 
 string = String()
 
 
-print(string.groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+print(string.numUniqueEmails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]))
 
 
