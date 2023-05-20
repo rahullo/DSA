@@ -286,9 +286,22 @@ class String():
         print(ans)
         return ans == t and ans2 == s
 
+        # mapST, mapTS = {}, {}
+
+        # for c1, c2 in zip(s, t):
+
+        #     if ((c1 in mapST and mapST[c1] != c2) or
+        #         (c2 in mapTS and mapTS[c2] != c1)):
+        #         return False
+
+        #     mapST[c1] = c2
+        #     mapTS[c2] = c1
+
+        # return True
+
 string = String()
 
 
-print(string.isIsomorphic("paper", "title"))
+print(string.isIsomorphic("add", "egg"))
 
 
