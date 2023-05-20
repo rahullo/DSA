@@ -261,10 +261,34 @@ class String():
 
         return len(unique)
 
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        unique = {}
+        ans = ''
+
+        for i in range(len(s)):
+            if s[i] not in unique:
+                unique[s[i]] = t[i]
+                ans += unique[s[i]]
+            else:
+                ans += unique[s[i]]
+        
+        unique2 = {}
+        ans2 = ''
+
+        for i in range(len(t)):
+            if t[i] not in unique2:
+                unique2[t[i]] = s[i]
+                ans2 += unique2[t[i]]
+            else:
+                ans2 += unique2[t[i]]
+            
+
+        print(ans)
+        return ans == t and ans2 == s
 
 string = String()
 
 
-print(string.numUniqueEmails(["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]))
+print(string.isIsomorphic("paper", "title"))
 
 
