@@ -499,10 +499,24 @@ class Solution:
             nums.remove(val)
         return len(nums)
     
+    def canPlaceFlowers(self, flowerbed, n):
+        emptySpace = 0
+
+        if flowerbed[0] == 0 and flowerbed[1] == 0:
+            emptySpace+=1
+            flowerbed[0] = 1
+
+        for i in range(len(flowerbed)-1):
+            if flowerbed[i] == 0 and flowerbed[i-1] ==0 and flowerbed[i+1] == 0:
+                emptySpace +=1
+                flowerbed[i] = 1
+        
+        print(flowerbed)
+        return emptySpace == n
 
 
 array = Solution()
 
-print(array.removeElement([3,2,2,3], 2))
+print(array.canPlaceFlowers([0,0,1,0,1], 1))
 
 
