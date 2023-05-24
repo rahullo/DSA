@@ -503,12 +503,12 @@ class Solution:
         emptySpace = 0
 
         if flowerbed[0] == 0 and flowerbed[1] == 0:
-            emptySpace+=1
+            emptySpace += 1
             flowerbed[0] = 1
 
         for i in range(len(flowerbed)-1):
-            if flowerbed[i] == 0 and flowerbed[i-1] ==0 and flowerbed[i+1] == 0:
-                emptySpace +=1
+            if flowerbed[i] == 0 and flowerbed[i-1] == 0 and flowerbed[i+1] == 0:
+                emptySpace += 1
                 flowerbed[i] = 1
         
         print(flowerbed)
