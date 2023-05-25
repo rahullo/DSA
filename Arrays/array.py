@@ -562,10 +562,22 @@ class Solution:
 
         return ans
 
+    def pivotIndex(self, nums):
+        total = sum(nums)
+        print(total)
+
+        leftSum = 0
+        for i in range(len(nums)):
+            rightSum = total - nums[i] - leftSum
+            if leftSum == rightSum:
+                return i
+            leftSum += nums[i]
+
+        return -1
 
 
 array = Solution()
 
-print(array.nextGreaterElement([2, 4], [1, 2, 3, 4]))
+print(array.pivotIndex([2, 1, -1]))
 
 
