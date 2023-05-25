@@ -578,6 +578,6 @@ class Solution:
 
 array = Solution()
 
-print(array.pivotIndex([2, 1, -1]))
+print(array.pivotIndex([2 -1]))
 
 
