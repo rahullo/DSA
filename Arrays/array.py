@@ -546,19 +546,26 @@ class Solution:
         #         ans.append(-1)
         # return ans
     
-        for item in nums1:
+        ans = [ -1 ] * len(nums1)
+
+        for i in range(len(nums1)):
+
+            item = nums1[i]
             index = nums2.index(item)
-            while index < len(nums2)-1:
-                print(nums2[index], item)
-                if nums2[index] > item:
-                    ans.append(nums2[index])
-                index +=1
-                
+
+            for j in range(index, len(nums2)):
+                if nums2[j] > item:
+                    ans[i] = nums2[j]
+                    break
+                else:
+                    ans[i] = -1
 
         return ans
 
+
+
 array = Solution()
 
-print(array.nextGreaterElement([1,3,5,2,4], [6,5,4,3,2,1,7]))
+print(array.nextGreaterElement([2, 4], [1, 2, 3, 4]))
 
 
