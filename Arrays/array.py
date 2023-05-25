@@ -534,11 +534,31 @@ class Solution:
             maxCount = max(count[n], maxCount)
 
         return res
+    
+    def nextGreaterElement(self, nums1, nums2):
+        ans = []
 
+        # for item in nums1:
+        #     index = nums2.index(item)
+        #     if index < len(nums2)-1 and nums2[index + 1] > item:
+        #         ans.append(nums2[index+1])
+        #     else:
+        #         ans.append(-1)
+        # return ans
+    
+        for item in nums1:
+            index = nums2.index(item)
+            while index < len(nums2)-1:
+                print(nums2[index], item)
+                if nums2[index] > item:
+                    ans.append(nums2[index])
+                index +=1
+                
 
+        return ans
 
 array = Solution()
 
-print(array.majorityElement([6,5,5]))
+print(array.nextGreaterElement([1,3,5,2,4], [6,5,4,3,2,1,7]))
 
 
