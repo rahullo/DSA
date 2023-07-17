@@ -302,6 +302,6 @@ class String():
 string = String()
 
 
-print(string.isIsomorphic("add", "egg"))
+print(string.isIsomorphic("add", "bff"))
 
 
