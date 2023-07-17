@@ -302,6 +302,6 @@ class String():
 string = String()
 
 
-print(string.isPalindrome("Rahul Lohra"))
+print(string.isPalindrome("Rahul Luhar"))
 
 
