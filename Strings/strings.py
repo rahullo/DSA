@@ -302,6 +302,6 @@ class String():
 string = String()
 
 
-print(string.groupAnagrams("alkdjfadfadnflkj"))
+print(string.isPalindrome("Rahul Lohra"))
 
 
