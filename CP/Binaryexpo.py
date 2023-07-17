@@ -22,7 +22,7 @@ def binPow(a, n):
 
 ##########################
 #####################################
-#####  GCD or HCF
+#  GCD or HCF
 def gcd(a, b):
     if(b == 0):
         return a
