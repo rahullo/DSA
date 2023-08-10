@@ -23,3 +23,25 @@ def removeElement(nums, val) -> int:
         i+=1
     
     return len(nums)    
+
+# "26. Remove Duplicates from Sorted Array"
+def removeDuplicates(nums) -> int:
+    # Algorithm which change nums
+    # i = 1
+    # while i < (len(nums)):
+    #     if nums[i] == nums[i-1]:
+    #         del nums[i]
+    #         i-=1
+    #     i+=1
+
+    # Algorithm without changing nums
+    i = 0
+
+    for num in nums:
+        if i < 1 or num > nums[i - 1]:
+            nums[i] = num
+            i += 1
+
+    return i
+
+removeDuplicates([1,2,2,3,4,4,5])
