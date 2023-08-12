@@ -49,21 +49,39 @@ def removeDuplicates(nums) -> int:
 # "80. Remove Duplicates from Sorted Array II"
 
 def removeDuplicatesSorted(nums):
-    i = 0
-    j = 1
-    n = len(nums)
 
-    while i < n-1 and j < n:
-        if nums[i] == nums[j]:
-            del nums[j]
-            j-=1
-            i-=1
-            n-=1
+    #With Time Complexity in mind
+    # i = 0
+    # n = len(nums)
+
+    # hashMap = {}
+
+    # while i < n:
+    #     if  nums[i] not in hashMap:
+    #         hashMap[nums[i]] = 1
+    #     elif nums[i] in hashMap:
+    #         hashMap[nums[i]] +=1
         
-        j+=1
-        i+=1
+    #     if hashMap[nums[i]] > 2:
+    #         del nums[i]
+    #         i -= 1
+    #         n -= 1
 
-    return nums
+    #     i +=1
 
-print(removeDuplicatesSorted([0,0,1,1,1,1,2,3,3]))
+    # return len(nums)
+
+    # With Space complexity in mind
+    print(nums)
+
+    i = 0
+
+    for num in nums:
+      if i < 2 or num != nums[i - 2]:
+        nums[i] = num
+        i += 1
+    return i
+              
+
+# print(removeDuplicatesSorted([0,0,1,1,1,1,2,3,3]))
         
