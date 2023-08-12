@@ -44,4 +44,26 @@ def removeDuplicates(nums) -> int:
 
     return i
 
-removeDuplicates([1,2,2,3,4,4,5])
+# removeDuplicates([1,2,2,3,4,4,5])
+
+# "80. Remove Duplicates from Sorted Array II"
+
+def removeDuplicatesSorted(nums):
+    i = 0
+    j = 1
+    n = len(nums)
+
+    while i < n-1 and j < n:
+        if nums[i] == nums[j]:
+            del nums[j]
+            j-=1
+            i-=1
+            n-=1
+        
+        j+=1
+        i+=1
+
+    return nums
+
+print(removeDuplicatesSorted([0,0,1,1,1,1,2,3,3]))
+        
