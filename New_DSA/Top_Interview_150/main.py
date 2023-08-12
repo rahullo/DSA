@@ -1,5 +1,5 @@
 arr1, arr2 = [1,2,3,0,0,0], [2, 5, 6]
-
+from collections import Counter
 
 # 1) "88. Merge Sorted Array"
 def merge(nums1, m, nums2, n) -> None:
@@ -81,7 +81,35 @@ def removeDuplicatesSorted(nums):
         nums[i] = num
         i += 1
     return i
-              
 
 # print(removeDuplicatesSorted([0,0,1,1,1,1,2,3,3]))
-        
+
+
+#################################
+# "169. Majority Element"
+def majorityElement(nums) -> int:
+    # count = {}
+    # res, maxCount = 0, 0
+
+    # for n in nums:
+    #     count[n] = 1 + count.get(n, 0)
+    #     res = n if count[n] > maxCount else res
+
+    #     maxCount = max(count[n], maxCount)
+
+    # return res
+
+    ans = None
+    count = 0
+
+    for num in nums:
+        if count == 0:
+            ans = num
+        count += (1 if num == ans else -1)
+
+    return ans
+            
+
+
+
+print(majorityElement([2,2,1,1,1,2,2]))
