@@ -219,4 +219,39 @@ def maxProfit2(prices):
 
     return sell
 
-print(maxProfit2([7,1,5,3,6,4]))
+# print(maxProfit2([7,1,5,3,6,4]))
+
+
+####################
+# 55. Jump Game
+def canJump(nums):
+    i = 0
+    reach = 0
+
+    while i < len(nums) and i <= reach:
+      reach = max(reach, i + nums[i])
+      print(reach)
+      i += 1
+
+    return i == len(nums)
+
+# print(canJump([2,3,1,1,4]))
+
+
+def canJump2(nums):
+    res = 0
+    r = l = 0
+
+    while r < len(nums) - 1:
+        farthest = 0
+        for i in range(l, r+1):
+            farthest = max(farthest, i + nums[i])
+        
+        l = r+1
+        r = farthest
+        res +=1
+    return res
+
+
+print(canJump2([2,3,1,1,4]))
+
