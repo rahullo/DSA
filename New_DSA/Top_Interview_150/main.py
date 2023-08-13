@@ -253,5 +253,47 @@ def canJump2(nums):
     return res
 
 
-print(canJump2([2,3,1,1,4]))
+# print(canJump2([2,3,1,1,4]))
 
+#  ###################
+# 274. H-Index
+def hIndex(citations):
+    citations.sort(reverse= True)
+
+    if len(citations) == 1 and citations[0] > 0:
+        return 1
+    
+    if citations[-1] > len(citations):
+        return len(citations)
+    
+    for i in range(len(citations)):
+        if citations[i] < i+1:
+            return i
+    
+    return 0
+
+# print(hIndex([7,7,7,7,7,7,7]))
+
+#####################
+#
+def productExceptSelf(nums):
+        n = len(nums)
+        prefix = [1] * n  
+        suffix = [1] * n 
+
+
+        for i in range(1, n):
+            prefix[i] = prefix[i - 1] * nums[i - 1]
+
+        print(prefix)
+
+        for i in reversed(range(n - 1)):
+            suffix[i] = suffix[i + 1] * nums[i + 1]
+
+        print(suffix)
+
+        return [prefix[i] * suffix[i] for i in range(n)]
+
+# print(productExceptSelf([1,2,3,4]))
+
+print(12 / 2)
