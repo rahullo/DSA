@@ -1,6 +1,8 @@
-arr1, arr2 = [1,2,3,0,0,0], [2, 5, 6]
 from collections import Counter
+import math
 
+
+arr1, arr2 = [1,2,3,0,0,0], [2, 5, 6]
 # 1) "88. Merge Sorted Array"
 def merge(nums1, m, nums2, n) -> None:
         """
@@ -110,6 +112,111 @@ def majorityElement(nums) -> int:
     return ans
             
 
+# print(majorityElement([2,2,1,1,1,2,2]))
+
+# 189. Rotate Array
+
+def reverse(nums, l, r) -> None:
+    while l < r:
+        nums[l], nums[r] = nums[r], nums[l]
+        l += 1
+        r -= 1
+    
+def rotate(nums, k):
+    #Brute Force
+    # for i in range(k):
+    #     temp = nums[-1]
+    #     for j in range(len(nums)-1, 0, -1):
+    #         nums[j] = nums[j-1]
+    #     nums[0] = temp
+
+    # return nums
+
+    #Little bit best approach
+    # for i in range(k):
+    #         last = len(nums)-1
+    #         temp = nums[last]
+    #         del nums[last]
+    #         nums.insert(0, temp)
+    # return nums
 
 
-print(majorityElement([2,2,1,1,1,2,2]))
+    #Recursive approach
+    # k %= len(nums)
+    # reverse(nums, 0, len(nums) - 1)
+    # reverse(nums, 0, k - 1)
+    # reverse(nums, k, len(nums) - 1)
+
+
+
+    #Optimised Solution
+    nums[:] = (nums[:-k%len(nums)][::-1] + nums[-k%len(nums):][::-1])[::-1]
+    return nums
+
+# print(rotate([-1,-100,3,99], 2))
+
+
+########################
+# 121. Best Time to Buy and Sell Stock
+def maxProfit(prices):
+    #Brute Force approach
+    # profit = 0
+
+    # for i in range(len(prices)):
+    #     for j in range(i, len(prices)):
+    #         if prices[i] < prices[j]:
+    #             currentProfit = prices[j] - prices[i]
+    #             profit = max(currentProfit, profit)
+
+    # return profit
+
+    minimum = prices[0]
+    profit = 0
+
+    for i in range(len(prices)):
+        minimum = min(minimum, prices[i])
+        currentProfit = prices[i] - minimum
+
+        profit = max(currentProfit, profit)
+
+    return profit
+
+# print(maxProfit([7,1,5, 11, 0, 3,6,4]))
+
+
+#######################################
+# 122. Best Time to Buy and Sell Stock II
+def maxProfit2(prices):
+    #Brute force
+    # minimum = prices[0]
+    # profit = 0
+    # stock = prices[0]
+    # res = 0
+
+    # for price in prices:
+    #     minimum = min(price, minimum)
+    #     stock = minimum
+    #     currentProfit = price - minimum
+
+    #     profit = max(currentProfit, profit)
+
+    #     if stock < price:
+    #         stock = price
+    #         res += profit
+    #         profit = 0
+    #         minimum = price
+
+    # return profit + res
+
+    #Optimised solution
+    sell = 0
+    hold = -math.inf
+    print(sell, hold)
+    for price in prices:
+        sell = max(sell, hold + price)
+        hold = max(hold, sell - price)
+        print(sell, hold)
+
+    return sell
+
+print(maxProfit2([7,1,5,3,6,4]))
