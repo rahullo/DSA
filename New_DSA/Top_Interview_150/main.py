@@ -285,15 +285,42 @@ def productExceptSelf(nums):
         for i in range(1, n):
             prefix[i] = prefix[i - 1] * nums[i - 1]
 
-        print(prefix)
 
         for i in reversed(range(n - 1)):
             suffix[i] = suffix[i + 1] * nums[i + 1]
 
-        print(suffix)
 
         return [prefix[i] * suffix[i] for i in range(n)]
 
 # print(productExceptSelf([1,2,3,4]))
 
-print(12 / 2)
+
+set = []
+import random
+class RandomizedSet:
+
+    def __init__(self):
+        self.set = []
+
+    def insert(self, val: int) -> bool:
+        if val in set:
+            return False
+        set.append(val)
+        return True
+
+    def remove(self, val: int) -> bool:
+        if val in set:
+            set.remove(val)
+            return True
+        return False
+
+    def getRandom(self) -> int:
+        randomNum = random.randint(0, len(set)-1)
+        return set[randomNum]
+    
+obj = RandomizedSet()
+print(obj.insert(2))
+print(obj.insert(3))
+print(obj.insert(4))
+# print(obj.remove(2))
+print(obj.getRandom())
