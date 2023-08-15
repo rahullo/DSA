@@ -465,4 +465,18 @@ def longestCommonPrefix(strs) -> str:
         ans+=first[i]
     return ans
 
-print(longestCommonPrefix(["flower","flow","flowht"]))
+# print(longestCommonPrefix(["flower","flow","flowht"]))
+
+##############################
+# 28. Find the Index of the First Occurrence in a String
+
+def strStr(haystack, needle):
+    m = len(haystack)
+    n = len(needle)
+
+    for i in range(m):
+        if haystack[i: i+n] == needle:
+            return i
+    return -1
+
+print(strStr('leetcode', 'tco'))
