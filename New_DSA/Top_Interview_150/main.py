@@ -324,3 +324,57 @@ class RandomizedSet:
 # print(obj.insert(4))
 # # print(obj.remove(2))
 # print(obj.getRandom())
+
+###########################
+# 135. Candy
+
+def candy(ratings):
+    # candies = 0
+    # for i in range(len(rating)):
+    #     if i == 0 and rating[i] >= rating[i+1]:
+    #         candies +=2
+    #     elif i == 0 and rating[i] <= rating[i+1]:
+    #        candies +=1
+    #     elif i == len(rating)-1 and rating[i] >= rating[i-1]:
+    #         candies +=2
+    #     elif i == len(rating)-1 and rating[i] <= rating[i-1]:
+    #         candies +=1
+    #     elif rating[i] >= rating[i-1] or rating[i] >= rating[i+1]:
+    #             candies +=2
+    #     else:
+    #         candies +=1
+    # return candies
+
+    n = len(ratings)
+    give = [1] * n
+
+    for i in range(1, n):
+        if ratings[i] > ratings[i-1]:
+            give[i] = give[i-1] + 1
+
+    for i in range(n-2, -1, -1):
+        if ratings[i] > ratings[i+1] and give[i] <= give[i+1]:
+            give[i] = give[i+1] + 1
+
+    print(give)
+    return sum(give)
+
+
+# print(candy([1,2,87,87,87,2,1])) #[1, 2, 2, 2, 2, 2, 1]
+
+###############################
+# Roman To Integer
+def romanToInt(s):
+    ans = 0
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
+            'C': 100, 'D': 500, 'M': 1000}
+
+    for a, b in zip(s, s[1:]):
+        if roman[a] < roman[b]:
+            ans -= roman[a]
+        else:
+            ans += roman[a]
+
+    return ans + roman[s[-1]]
+
+print(romanToInt("LVIII"))
