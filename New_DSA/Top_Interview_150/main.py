@@ -318,9 +318,9 @@ class RandomizedSet:
         randomNum = random.randint(0, len(set)-1)
         return set[randomNum]
     
-obj = RandomizedSet()
-print(obj.insert(2))
-print(obj.insert(3))
-print(obj.insert(4))
-# print(obj.remove(2))
-print(obj.getRandom())
+# obj = RandomizedSet()
+# print(obj.insert(2))
+# print(obj.insert(3))
+# print(obj.insert(4))
+# # print(obj.remove(2))
+# print(obj.getRandom())
