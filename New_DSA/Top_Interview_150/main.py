@@ -403,3 +403,19 @@ def intToRoman(num):
     return ''.join(ans)
 
 # print(intToRoman(43))
+
+###########################
+# 58. Length of last word
+def lengthOfLastWord(s):
+    newS = s.strip()
+    count = 0
+
+    for i in range(len(newS)-1, -1, -1):
+        if newS[i] == " ":
+            return count
+        else:
+            count+=1
+
+    return count
+
+# print(lengthOfLastWord("luffy is still joyboy"))
