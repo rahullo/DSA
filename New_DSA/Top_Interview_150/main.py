@@ -419,3 +419,32 @@ def lengthOfLastWord(s):
     return count
 
 # print(lengthOfLastWord("luffy is still joyboy"))
+
+###############################
+# 151. Reverse Words in a String
+def reverseWords(s):
+    # words = []
+
+    # new_str = s.strip()
+
+    # start = len(new_str)-1
+
+    # for i in range(len(new_str)-1, -1, -1):
+    #     if new_str[i] == " ":
+    #         words.append(new_str[i+1: start+1])
+    #         start = i-1
+    #     elif i == 0:
+    #         words.append(new_str[i: start+1])
+        
+
+    # i = 0
+    # while i < len(words):
+    #     if words[i] == "":
+    #         words.remove("")
+    #         i-=1
+    #     i+=1
+
+    # return " ".join(words)
+
+print(reverseWords("a   good         example "))
+
