@@ -446,5 +446,9 @@ def reverseWords(s):
 
     # return " ".join(words)
 
-print(reverseWords("a   good         example "))
+    s = s.split()
+    s = s[::-1]
+    return " ".join(s)
+
+# print(reverseWords("a   good         example "))
 
