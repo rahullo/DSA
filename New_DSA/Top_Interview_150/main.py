@@ -325,6 +325,18 @@ class RandomizedSet:
 # # print(obj.remove(2))
 # print(obj.getRandom())
 
+#############################
+# 134. Gas Station
+def gasStation(gas, cost):
+    if sum(gas) < sum(cost): return -1
+    tank = idx = 0
+    for i in range(len(gas)):
+        tank+= gas[i]-cost[i] 
+        if tank < 0: tank, idx = 0, i+1
+    return idx
+
+# print(gasStation([1,2,3,4,5], [3,4,5,1,2]))
+
 ###########################
 # 135. Candy
 
@@ -346,18 +358,16 @@ def candy(ratings):
     # return candies
 
     n = len(ratings)
-    give = [1] * n
-
-    for i in range(1, n):
-        if ratings[i] > ratings[i-1]:
-            give[i] = give[i-1] + 1
-
-    for i in range(n-2, -1, -1):
-        if ratings[i] > ratings[i+1] and give[i] <= give[i+1]:
-            give[i] = give[i+1] + 1
-
-    print(give)
-    return sum(give)
+    candies = [1]*n
+    #Iteration from left to right
+    for i in range(1,n):
+        if ratings[i]>ratings[i-1] and candies[i]<=candies[i-1]:
+            candies[i] = candies[i-1]+1
+    #Iteration from right to left
+    for i in range(n-2,-1,-1):
+        if ratings[i]>ratings[i+1] and candies[i]<=candies[i+1]:
+            candies[i] = candies[i+1]+1
+    return sum(candies)
 
 
 # print(candy([1,2,87,87,87,2,1])) #[1, 2, 2, 2, 2, 2, 1]
@@ -528,13 +538,33 @@ def maxSlidingWindow(nums, k):
 # print(maxSlidingWindow([1], 1))
 # print(maxSlidingWindow([1,3,-1,-3,5,3,6, 7], 3))
 
+###################
+# 42. Trapping Rain Water
+def trap(height):
 
-def gasStation(gas, cost):
-    if sum(gas) < sum(cost): return -1
-    tank = idx = 0
-    for i in range(len(gas)):
-        tank+= gas[i]-cost[i] 
-        if tank < 0: tank, idx = 0, i+1
-    return idx
+    preffix = [0] * len(height)
+    suffix = [0] * len(height)
 
-print(gasStation([1,2,3,4,5], [3,4,5,1,2]))
+    current_max = 0
+    for i in range(len(height)):
+        if height[i] > current_max:
+            current_max = height[i]
+            preffix[i] = current_max
+        else:
+            preffix[i] = current_max
+    
+    current_max = 0
+    for i in range(len(height)-1, -1, -1): 
+        if current_max < height[i]:  #[0, 0, 0, 0, 0, 0] = [0, 1, 1, 3, 2, 1]
+            current_max = height[i]
+            suffix[i] = current_max
+        else:
+            suffix[i] = current_max
+    res = 0
+    for i in range(len(height)):
+        res += min(preffix[i], suffix[i]) -height[i]
+
+    return res
+
+print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+# trap([0,1,1,3,2,1])
