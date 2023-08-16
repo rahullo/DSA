@@ -479,4 +479,62 @@ def strStr(haystack, needle):
             return i
     return -1
 
-print(strStr('leetcode', 'tco'))
+# print(strStr('leetcode', 'tco'))
+
+
+##########################
+# 239. Sliding Window maximum 
+from collections import deque
+
+def maxSlidingWindow(nums, k):
+    # i = 0
+    # j = len(nums) if len(nums) % 2 != 0 else len(nums) - 1
+    
+    # fArr = []
+    # bArr = []
+
+    # while i + k != j:
+    #     print(i, j)
+    #     print(nums[i: i+k], nums[j-k: j])
+    #     fArr.append(max(nums[i: i+k]))
+    #     bArr.insert(0, max(nums[j-k: j+1]))
+
+    #     i+=1
+    #     j-=1
+    
+    # fArr.append(max(nums[i:j]))
+    # print(nums[i:j])
+
+    # return fArr+bArr
+
+    
+    result = [] 
+    window = deque()  
+    for i in range(len(nums)):
+        print(window, result)
+        while window and window[0] < i - k + 1:
+            window.popleft()
+        
+        while window and nums[i] >= nums[window[-1]]:
+            window.pop()
+        
+        window.append(i)
+        
+        if i >= k - 1:
+            result.append(nums[window[0]])
+    
+    return result
+
+# print(maxSlidingWindow([1], 1))
+# print(maxSlidingWindow([1,3,-1,-3,5,3,6, 7], 3))
+
+
+def gasStation(gas, cost):
+    if sum(gas) < sum(cost): return -1
+    tank = idx = 0
+    for i in range(len(gas)):
+        tank+= gas[i]-cost[i] 
+        if tank < 0: tank, idx = 0, i+1
+    return idx
+
+print(gasStation([1,2,3,4,5], [3,4,5,1,2]))
