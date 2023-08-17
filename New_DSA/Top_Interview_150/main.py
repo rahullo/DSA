@@ -541,30 +541,89 @@ def maxSlidingWindow(nums, k):
 ###################
 # 42. Trapping Rain Water
 def trap(height):
+    # Array preprocessing approach
+    # preffix = [0] * len(height)
+    # suffix = [0] * len(height)
 
-    preffix = [0] * len(height)
-    suffix = [0] * len(height)
-
-    current_max = 0
-    for i in range(len(height)):
-        if height[i] > current_max:
-            current_max = height[i]
-            preffix[i] = current_max
-        else:
-            preffix[i] = current_max
+    # current_max = 0
+    # for i in range(len(height)):
+    #     if height[i] > current_max:
+    #         current_max = height[i]
+    #         preffix[i] = current_max
+    #     else:
+    #         preffix[i] = current_max
     
-    current_max = 0
-    for i in range(len(height)-1, -1, -1): 
-        if current_max < height[i]:  #[0, 0, 0, 0, 0, 0] = [0, 1, 1, 3, 2, 1]
-            current_max = height[i]
-            suffix[i] = current_max
-        else:
-            suffix[i] = current_max
+    # current_max = 0
+    # for i in range(len(height)-1, -1, -1): 
+    #     if current_max < height[i]:  #[0, 0, 0, 0, 0, 0] = [0, 1, 1, 3, 2, 1]
+    #         current_max = height[i]
+    #         suffix[i] = current_max
+    #     else:
+    #         suffix[i] = current_max
+    # res = 0
+    # for i in range(len(height)):
+    #     res += min(preffix[i], suffix[i]) -height[i]
+
+    # return res
+
+    # Two pointer approach
+    n = len(height)
     res = 0
-    for i in range(len(height)):
-        res += min(preffix[i], suffix[i]) -height[i]
+
+    l = 0
+    r = n-1
+    maxL = maxR = 0
+
+    while l <= r:
+        if height[l] <= height[r]:
+            if height[l] > maxL:
+                maxL = height[l]
+            else: res += maxL - height[l]
+
+            l+=1
+        else:
+            if height[r] > maxR:
+                maxR = height[r]
+            else:
+                res+= maxR - height[r]
+
+            r-=1
+    return res
+
+# print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
+# print(trap([0,6,1,3,2,1]))
+
+###############################
+# 6. Zigzag Conversion
+def convert(s, numRows):
+
+    if numRows == 1: return s
+
+    res = ""
+
+    for r in range(numRows):
+        increment = 2*(numRows-1)
+        for i in range(r, len(s), increment):
+            res += s[i]
+            if (r > 0 and r < numRows -1 and 
+                i+increment-2*r< len(s)):
+                res += s[i+increment-2*r]
 
     return res
 
-print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
-# trap([0,1,1,3,2,1])
+    # optimized approach
+    # rows = [''] * numRows
+    # k = 0
+    # direction = (numRows == 1) -1
+    # print(direction)
+    # for c in s:
+    #     rows[k] += c
+    #     if k == 0 or k == numRows-1:
+    #         direction *= -1
+    #     k += direction
+    #     print(rows)
+        
+    # return ''.join(rows)
+
+
+print(convert("PAYPALISHIRING", 3))
