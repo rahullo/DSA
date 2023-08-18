@@ -631,10 +631,6 @@ def convert(s, numRows):
 ################################3
 # 125. Valid Palindrome
 def isPalindrome(s) -> bool:
-    # new_Array = s.split()
-    # s = ''.join(new_Array)
-    # print(s)
-
     i = 0
     j = len(s)-1
 
@@ -650,4 +646,27 @@ def isPalindrome(s) -> bool:
     return True
 
 
-print(isPalindrome("A man, a plan, a canal: Panama"))
+# print(isPalindrome("A man, a plan, a canal: Panama"))
+
+#################
+# 392. Is Subsequence
+def isSubsequence(s, t) -> bool:
+    # seq = 0
+    # for char in s:
+    #     for i in range(len(t)):
+    #         if char not in t:
+    #             return False
+    #         elif t[i] == char and i < seq:
+    #             return False
+    #         elif t[i] == char and i >= seq:
+    #             seq = i
+    # return True
+    for c in s:
+        i = t.find(c)
+        if i == -1:    return False
+        else:   t = t[i+1:]
+    return True
+
+
+
+print(isSubsequence('abc', 'ahbgdc'))
