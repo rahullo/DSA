@@ -626,4 +626,28 @@ def convert(s, numRows):
     # return ''.join(rows)
 
 
-print(convert("PAYPALISHIRING", 3))
+# print(convert("PAYPALISHIRING", 3))
+
+################################3
+# 125. Valid Palindrome
+def isPalindrome(s) -> bool:
+    # new_Array = s.split()
+    # s = ''.join(new_Array)
+    # print(s)
+
+    i = 0
+    j = len(s)-1
+
+    while i <= j:
+        while i < j and not s[i].isalnum():
+            i+=1
+        while i < j and not s[j].isalnum():
+            j-=1
+        if s[i].lower() != s[j].lower():
+            return False
+        i += 1
+        j -= 1
+    return True
+
+
+print(isPalindrome("A man, a plan, a canal: Panama"))
