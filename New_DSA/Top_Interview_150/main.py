@@ -688,4 +688,22 @@ def twoSum(numbers, target):
             l += 1
         
 
-print(twoSum([2, 7, 11, 15], 13))
+# print(twoSum([2, 7, 11, 15], 13))
+
+############################################
+# 11. Container With Most Water
+def maxArea(height):
+    l = 0
+    r = len(height) - 1
+    ans = 0
+
+    while l < r:
+        minHeight = min(height[l], height[r])
+        ans = max(ans, minHeight * (r-l))
+        if height[l] < height[r]:
+            l+=1
+        else:
+            r-=1
+    return ans
+
+print(maxArea([1,8,6,2,5,4,8,3,7]))
