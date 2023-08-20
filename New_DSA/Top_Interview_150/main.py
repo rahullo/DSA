@@ -740,4 +740,35 @@ def threeSum(nums):
                         result.append((j, j2, -j-j2))
     return result
 
-print(threeSum([-1,0,1,2,-1,-4]))
+# print(threeSum([-1,0,1,2,-1,-4]))
+
+######################################
+# 209. Minimum Size Subarray Sum
+def minSubArrayLen(target, nums):
+    # nums.sort(reverse= True)
+    # print(nums)
+    # ans = 0
+    # sums = 0
+
+    # for i in range(len(nums)):
+    #     sums += nums[i]
+    #     print(sums, nums[i])
+    #     ans += 1
+
+    #     if sums >= target:
+    #         return ans
+
+    # return 0
+
+    
+    minlen = float('inf')
+    l,sum =0,0
+    for r in range(len(nums)):
+        sum += nums[r]
+        while sum >= target:
+            minlen = min(minlen, r-l+1)
+            sum -= nums[l]
+            l += 1
+    return minlen if minlen<=len(nums) else 0
+
+print(minSubArrayLen(213, [12,28,83,4,25,26,25,2,25,25,25,12]))
