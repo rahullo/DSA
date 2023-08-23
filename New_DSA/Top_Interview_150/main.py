@@ -771,4 +771,24 @@ def minSubArrayLen(target, nums):
             l += 1
     return minlen if minlen<=len(nums) else 0
 
-print(minSubArrayLen(213, [12,28,83,4,25,26,25,2,25,25,25,12]))
+# print(minSubArrayLen(213, [12,28,83,4,25,26,25,2,25,25,25,12]))
+
+#################################3
+# 3. Longest Substring Without Repeating Characters
+from collections import Counter
+def lengthOfLongestSubstring(s):
+    ans = 0
+    count = Counter()
+    print(count)
+    l = 0
+    for r, c in enumerate(s):
+        count[c] += 1
+        print(count)
+        while count[c] > 1:
+            count[s[l]] -= 1
+            l += 1
+        ans = max(ans, r - l + 1)
+
+    return ans
+
+print(lengthOfLongestSubstring('abcabccbb'))
