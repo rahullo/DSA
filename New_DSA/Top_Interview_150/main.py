@@ -929,4 +929,22 @@ def canConstruct(ransomNote, magazine):
     count2 = collections.Counter(magazine)
     return all(count1[c] <= count2[c] for c in string.ascii_lowercase)
     
-print(canConstruct("aab", "baa"))
+# print(canConstruct("aab", "baa"))
+
+
+#################################
+# 205. Isomorphic Strings
+def isIsomorphic( s, t):
+    mapST, mapTS = {}, {}
+
+    for c1, c2 in zip(s, t):
+        if ((c1 in mapST and mapST[c1] != c2) or
+            (c2 in mapTS and mapTS[c2] != c1)):
+            return False
+
+        mapST[c1] = c2
+        mapTS[c2] = c1
+
+    return True
+
+print(isIsomorphic("paper", "title"))
