@@ -913,15 +913,20 @@ def gameOfLife(board):
 
 ############################
 # 383. Ransom Note
+import string
 def canConstruct(ransomNote, magazine):
-    counter = collections.Counter(magazine)
-    print(counter)
-    for char in ransomNote:
-        counter[char] -=1
+    # counter = collections.Counter(magazine)
+    # print(counter)
+    # for char in ransomNote:
+    #     counter[char] -=1
 
-        if counter[char] < 0:
-            return False
+    #     if counter[char] < 0:
+    #         return False
 
-    return True
+    # return True
 
+    count1 = collections.Counter(ransomNote)
+    count2 = collections.Counter(magazine)
+    return all(count1[c] <= count2[c] for c in string.ascii_lowercase)
+    
 print(canConstruct("aab", "baa"))
