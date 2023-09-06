@@ -880,3 +880,48 @@ def rotate(matrix):
     matrix[:]=list(zip(*matrix[::-1]))
 
 # print(rotate([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+
+##############################
+# 289. Game of Life
+def checkNeighbour(board, i, j):
+    survivor = 0
+    neighbours = [[i-1, j-1], [i-1, j], [i-1, j+1], [i, j-1], [i, j+1], [i+1, j-1], [i+1, j], [i+1, j+1]]
+    for item in neighbours:
+        if board[item[0]][item[1]] and board[item[0]][item[1]] == 1:
+            survivor +=1
+
+    return survivor
+
+
+def gameOfLife(board):
+
+    row = len(board)
+    col = len(board[0])
+    ans = []
+    survivor  = checkNeighbour(board, 0, 0)
+
+    print(survivor)
+
+    # for i in range(row):
+    #     for j in range(col):
+    #         survivor = checkNeighbour(board, i, j)
+    #         print(survivor)
+    
+    return board
+
+# print(gameOfLife([[0,1,0],[0,0,1],[1,1,1],[0,0,0]]))
+
+############################
+# 383. Ransom Note
+def canConstruct(ransomNote, magazine):
+    counter = collections.Counter(magazine)
+    print(counter)
+    for char in ransomNote:
+        counter[char] -=1
+
+        if counter[char] < 0:
+            return False
+
+    return True
+
+print(canConstruct("aab", "baa"))
