@@ -10,4 +10,8 @@ def isPowerOfTwo(n):
     
 
 
-print(isPowerOfTwo(30))
+# print(isPowerOfTwo(30))
+
+# return n and not (n&n-1)
+print(4&4 - 1)
+print(4<<3)
