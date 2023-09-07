@@ -957,4 +957,14 @@ def wordPattern(pattern, s):
     print(k, v, p)
     return len(k) == len(v) == len(p) and len(pattern) == len(ls)
 
-print(wordPattern("abba","dog cat cat dog"))
+# print(wordPattern("abba","dog cat cat dog"))
+
+################################
+# 242. Valid Anagram
+def isAnagram(s, t):
+    s = ''.join(sorted(s))
+    t = ''.join(sorted(t))
+
+    return s == t
+
+print(isAnagram("rat", "car"))
