@@ -975,4 +975,31 @@ def isAnagram(s, t):
             return False
     return True
 
-print(isAnagram("anagram", "nagaram"))
+# print(isAnagram("anagram", "nagaram"))
+
+################################
+# 49. Group Anagram
+def groupAnagrams(strs):
+    dict = collections.defaultdict(list)
+
+    for str in strs:
+        key = ''.join(sorted(str))
+        dict[key].append(str)
+
+        
+    print(dict)
+    return dict.values()
+
+# print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+###############################
+# 1. two Sum
+def twoSum(nums, target):
+    dict = {}
+
+    for  i, num in enumerate(nums):
+        if target - num in dict:
+            return [dict[target-num], i]
+        dict[num] = i
+
+print(twoSum([2, 7, 11, 15], 9))
