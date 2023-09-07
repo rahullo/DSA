@@ -947,4 +947,14 @@ def isIsomorphic( s, t):
 
     return True
 
-print(isIsomorphic("paper", "title"))
+# print(isIsomorphic("paper", "title"))
+
+################
+# 290. Word Pattern
+def wordPattern(pattern, s):
+    ls = s.split()
+    k, v, p = Counter(pattern), Counter(ls), Counter(zip(pattern, ls))
+    print(k, v, p)
+    return len(k) == len(v) == len(p) and len(pattern) == len(ls)
+
+print(wordPattern("abba","dog cat cat dog"))
