@@ -962,9 +962,17 @@ def wordPattern(pattern, s):
 ################################
 # 242. Valid Anagram
 def isAnagram(s, t):
-    s = ''.join(sorted(s))
-    t = ''.join(sorted(t))
+    # s = ''.join(sorted(s))
+    # t = ''.join(sorted(t))
 
-    return s == t
+    # return s == t
 
-print(isAnagram("rat", "car"))
+    dict = collections.Counter(s)
+
+    for c in t:
+        dict[c] -=1
+        if dict[c] < 0:
+            return False
+    return True
+
+print(isAnagram("anagram", "nagaram"))
