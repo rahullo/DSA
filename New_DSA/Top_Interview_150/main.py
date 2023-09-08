@@ -1028,4 +1028,19 @@ def isHappy(n):
     return slow == 1
    
 
-print(isHappy(18))
+# print(isHappy(18))
+
+###################################
+# 219. Contain Duplicate II
+def containsNearbyDuplicate(nums, k):
+    hashSet = {}
+
+    for i, num in enumerate(nums):
+        if num in hashSet and i - hashSet[num] <= k:
+            return True
+        hashSet[num] = i
+
+    return False
+
+print(containsNearbyDuplicate([1, 0, 1, 1], 1))
+
