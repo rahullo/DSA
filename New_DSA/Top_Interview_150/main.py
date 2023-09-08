@@ -1002,4 +1002,30 @@ def twoSum(nums, target):
             return [dict[target-num], i]
         dict[num] = i
 
-print(twoSum([2, 7, 11, 15], 9))
+# print(twoSum([2, 7, 11, 15], 9))
+
+########################
+# 202. Happy Number
+def isHappy(n):
+    def squaredSum(n: int) -> bool:
+      summ = 0
+      while n:
+        summ += pow(n % 10, 2)
+        n //= 10
+      return summ
+
+    slow = squaredSum(n)
+    fast = squaredSum(squaredSum(n))
+
+    while slow != fast:
+      print(slow, fast)
+      
+      slow = squaredSum(slow)
+      fast = squaredSum(squaredSum(fast))
+
+    print(slow, fast)
+
+    return slow == 1
+   
+
+print(isHappy(18))
