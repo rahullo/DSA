@@ -1042,5 +1042,12 @@ def containsNearbyDuplicate(nums, k):
 
     return False
 
-print(containsNearbyDuplicate([1, 0, 1, 1], 1))
+    # mySet = set()
+    # for r in range(len(nums)):
+    #     if nums[r] in mySet:return True
+    #     mySet.add(nums[r])
+    #     if len(mySet)==k+1:mySet.remove(nums[r-k])
+    # return False
+
+# print(containsNearbyDuplicate([1, 0, 1, 1], 1))
 
