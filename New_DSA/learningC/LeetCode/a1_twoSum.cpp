@@ -19,13 +19,14 @@ int* twoSum(int* nums, int numsSize, int target, int returnSize) {
 		}
 		
 	}
-}
+};
 
 int main(){
 	int test1[] = {2,7,11,15};
 	int test2[] = {3, 2, 4};
+	int test3[] = {9, 5, 1, 3, 2, 4};
 	
-	int* ans = twoSum(test2, 3, 6, 2);
+	int* ans = twoSum(test3, 6, 6, 2);
 	printf("Digits are: %d and %d", ans[0], ans[1]);
 	return 0;
 }
