@@ -1,6 +1,6 @@
 from turtle import *
 title('Jai Shree Ram')
-bgcolor('black')
+bgcolor('white')
 pensize(5)
 pencolor("ORANGE")
 Ram_naam = ["जय श्री राम"]*50
