@@ -91,69 +91,122 @@
     
 # print(mys())
 
-def threesquares(m):
+# def threesquares(m):
 
-  if m <= 0:
-    return False
+#   if m <= 0:
+#     return False
 
-  for a in range(int(m**0.5) + 1):
-    for b in range(int(m**0.5) + 1):
-      for c in range(int(m**0.5) + 1):
-        if a**2 + b**2 + c**2 == m:
-          return True
+#   for a in range(int(m**0.5) + 1):
+#     for b in range(int(m**0.5) + 1):
+#       for c in range(int(m**0.5) + 1):
+#         if a**2 + b**2 + c**2 == m:
+#           return True
 
-  return False
+#   return False
 
 
 
-def repfree(s):
+# def repfree(s):
+#   seen = set()
+
+#   for char in s:
+#     if char in seen:
+#       return False
+#     seen.add(char)
+
+#   return True
+
+
+# def hillvalley(l):
+#     if len(l) < 3:
+#         return False
+
+#     is_hill = False
+#     for i in range(1, len(l) - 1):
+#         if l[i - 1] < l[i] > l[i + 1]:
+#             is_hill = True
+#             break
+
+#     is_valley = False
+#     for i in range(1, len(l) - 1):
+#         if l[i - 1] > l[i] < l[i + 1]:
+#             is_valley = True
+#             break
+
+#     return is_hill or is_valley
+
+
+# # Test cases
+# print("True", threesquares(6))  # True
+# print("False ", threesquares(188))  # False
+# print("True", threesquares(1000))  # True
+# print("True", threesquares(6)) #True
+# print("False", threesquares(143)) #False
+# print("True", threesquares(1024)) #True
+# print('\n')
+
+
+# print("True", repfree("qwerty!@#2")) #True
+# print("False", repfree("(x+6)(y-5)")) #False
+# print("True", repfree("94templars")) #True
+# print("False", repfree("siruseri")) #False
+# print('\n')
+
+
+# print("True", hillvalley([1,2,3,5,4,3,2,1])) #True
+# print("False",hillvalley([1, 2, 3, 4, 5, 3, 2, 4, 5, 3, 2, 1])) # False
+# print("True", hillvalley([9,5,4,-1,-2,3,7])) #True
+# print("False", hillvalley([5,4,3,2,1,0,-1,-2,-3])) #False
+
+
+def remdup(l):
+  
   seen = set()
+  unique_elements = []
+  for num in l:
+    if num not in seen:
+      seen.add(num)
+      unique_elements.append(num)
+  return unique_elements
 
-  for char in s:
-    if char in seen:
-      return False
-    seen.add(char)
+# Example usage
+# print(remdup([3,1,3,5]))
+# [3, 1, 5]
 
-  return True
+# print(remdup([7,3,-1,-5]))
+# [7, 3, -1, -5]
 
+# print(remdup([3,5,7,5,3,7,10]))
+# [3, 5, 7, 10]
 
-def hillvalley(l):
-    if len(l) < 3:
-        return False
-
-    is_hill = False
-    for i in range(1, len(l) - 1):
-        if l[i - 1] < l[i] > l[i + 1]:
-            is_hill = True
-            break
-
-    is_valley = False
-    for i in range(1, len(l) - 1):
-        if l[i - 1] > l[i] < l[i + 1]:
-            is_valley = True
-            break
-
-    return is_hill or is_valley
+# l = [1, 2, 2, 3, 4, 1, 5]
+# unique_list = remdup(l)
+# print(unique_list)  # Output: [1, 2, 3, 4, 5]
 
 
-# Test cases
-print("True", threesquares(6))  # True
-print("False ", threesquares(188))  # False
-print("True", threesquares(1000))  # True
-print("True", threesquares(6)) #True
-print("False", threesquares(143)) #False
-print("True", threesquares(1024)) #True
-print('\n')
+
+def sumsquare(l):
+    odd_sum = 0
+    even_sum = 0
+
+    for num in l:
+        if num % 2 == 0:  # even number
+            even_sum += num ** 2
+        else:  # odd number
+            odd_sum += num ** 2
+
+    return [odd_sum, even_sum]
+
+# Example usage:
+# l = [1, 2, 3, 4, 5]
+# print(sumsquare(l))  # Output: [35, 20]
 
 
-print("True", repfree("qwerty!@#2")) #True
-print("False", repfree("(x+6)(y-5)")) #False
-print("True", repfree("94templars")) #True
-print("False", repfree("siruseri")) #False
-print('\n')
+print(sumsquare([1,3,5]))
+# [35, 0]
 
+print(sumsquare([2,4,6]))
+# [0, 56]
 
-print("True", hillvalley([1,2,3,5,4,3,2,1])) #True
-print("False",hillvalley([1, 2, 3, 4, 5, 3, 2, 4, 5, 3, 2, 1])) # False
-print("True", hillvalley([9,5,4,-1,-2,3,7])) #True
-print("False", hillvalley([5,4,3,2,1,0,-1,-2,-3])) #False
+print(sumsquare([-1,-2,3,7]))
+# [59, 4]
