@@ -159,15 +159,15 @@
 # print("False", hillvalley([5,4,3,2,1,0,-1,-2,-3])) #False
 
 
-def remdup(l):
+# def remdup(l):
   
-  seen = set()
-  unique_elements = []
-  for num in l:
-    if num not in seen:
-      seen.add(num)
-      unique_elements.append(num)
-  return unique_elements
+#   seen = set()
+#   unique_elements = []
+#   for num in l:
+#     if num not in seen:
+#       seen.add(num)
+#       unique_elements.append(num)
+#   return unique_elements
 
 # Example usage
 # print(remdup([3,1,3,5]))
@@ -185,28 +185,65 @@ def remdup(l):
 
 
 
-def sumsquare(l):
-    odd_sum = 0
-    even_sum = 0
+# def sumsquare(l):
+#     odd_sum = 0
+#     even_sum = 0
 
-    for num in l:
-        if num % 2 == 0:  # even number
-            even_sum += num ** 2
-        else:  # odd number
-            odd_sum += num ** 2
+#     for num in l:
+#         if num % 2 == 0:  # even number
+#             even_sum += num ** 2
+#         else:  # odd number
+#             odd_sum += num ** 2
 
-    return [odd_sum, even_sum]
+#     return [odd_sum, even_sum]
 
 # Example usage:
 # l = [1, 2, 3, 4, 5]
 # print(sumsquare(l))  # Output: [35, 20]
 
 
-print(sumsquare([1,3,5]))
-# [35, 0]
+# print(sumsquare([1,3,5]))
+# # [35, 0]
 
-print(sumsquare([2,4,6]))
-# [0, 56]
+# print(sumsquare([2,4,6]))
+# # [0, 56]
 
-print(sumsquare([-1,-2,3,7]))
+# print(sumsquare([-1,-2,3,7]))
 # [59, 4]
+
+
+# def transpose(m):
+#   transposed_matrix = []
+
+#   for col in range(len(m[0])):
+#     new_row = []
+
+#     for row in range(len(m)):
+#       new_row.append(m[row][col])
+
+#     transposed_matrix.append(new_row)
+
+#   return transposed_matrix
+
+
+# print(transpose([[1,2,3],[4,5,6]]))
+# # [[1, 4], [2, 5], [3, 6]]
+
+# print(transpose([[1],[2],[3]]))
+# # [[1, 2, 3]]
+
+# print(transpose([[3]]))
+# # [[3]]
+
+
+# def mystery(l,v):
+#   if len(l) == 0:
+#     return (v)
+#   else:
+#     return (mystery(l[:-1],l[-1]+v))
+  
+# print(mystery([22,14,19,65,82,55],1))
+
+triples = [ (x,y,z) for x in range(2,4) for y in range(2,5) for z in range(5,7) if 2*x*y > 3*z ]
+
+print(triples)
