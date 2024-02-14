@@ -276,3 +276,100 @@
 # inventory["Amul, Mystic Mocha"] = 55
 # inventory[["Amul","Mystic Mocha"]] = 55
 # inventory[("Amul","Mystic Mocha")] = 55
+
+
+def orangecap(d):
+    player_scores = {}
+    
+    for match, players in d.items():
+        for player, score in players.items():
+            player_scores[player] = player_scores.get(player, 0) + score
+    
+    top_player = max(player_scores, key=player_scores.get)
+    top_score = player_scores[top_player]
+    
+    return (top_player, top_score)
+
+# Example usage:
+# d = {'match1': {'player1': 57, 'player2': 38}, 'match2': {'player3': 9, 'player1': 42}, 'match3': {'player2': 41, 'player4': 63, 'player3': 91}}
+# # print(orangecap(d))  # Output: ('player3', 100)
+
+
+# print(orangecap({'match1':{'player1':57, 'player2':38}, 'match2':{'player3':9, 'player1':42}, 'match3':{'player2':41, 'player4':63, 'player3':91}}))
+# # ('player3', 100)
+
+# print(orangecap({'test1':{'Pant':84, 'Kohli':120}, 'test2':{'Pant':59, 'Gill':42}}))
+# ('Pant', 143)
+
+
+def add_terms(term1, term2):
+  
+  coefficient = term1[0] + term2[0]
+  if coefficient == 0:
+    return None  # Term with zero coefficient should be removed
+  return coefficient, term1[1]
+
+def addpoly(p1, p2):
+  result = []
+  i, j = 0, 0
+  while i < len(p1) and j < len(p2):
+    if p1[i][1] == p2[j][1]:
+      combined_term = add_terms(p1[i], p2[j])
+      if combined_term:
+        result.append(combined_term)
+      i += 1
+      j += 1
+    elif p1[i][1] > p2[j][1]:
+      result.append(p1[i])
+      i += 1
+    else:
+      result.append(p2[j])
+      j += 1
+  # Add remaining terms from either list
+  result.extend(p1[i:])
+  result.extend(p2[j:])
+  return result
+
+def mult_term(term1, term2):
+  coefficient = term1[0] * term2[0]
+  exponent = term1[1] + term2[1]
+  return coefficient, exponent
+
+def multpoly(p1, p2):
+  result = []
+  for term1 in p1:
+    for term2 in p2:
+      product = mult_term(term1, term2)
+      found = False
+      for i in range(len(result)):
+        if result[i][1] == product[1]:
+          result[i] = add_terms(result[i], product)
+          found = True
+          break
+      if not found:
+        result.append(product)
+  return result
+
+# Sample usage
+p1 = [(3, 4), (-17, 2), (-3, 1), (5, 0)]
+p2 = [(2, 3), (-1, 2), (1, 1)]
+added = addpoly(p1, p2)
+multiplied = multpoly(p1, p2)
+print("Added:", added)
+print("Multiplied:", multiplied)
+
+
+print(addpoly([(4,3),(3,0)],[(-4,3),(2,1)]))
+# [(2, 1),(3, 0)]
+
+# Explanation: (4x^3 + 3) + (-4x^3 + 2x) = 2x + 3
+
+print(addpoly([(2,1)],[(-2,1)]))
+# []
+
+# Explanation: 2x + (-2x) = 0
+
+print(multpoly([(1,1),(-1,0)],[(1,2),(1,1),(1,0)]))
+# [(1, 3),(-1, 0)]
+
+# Explanation: (x - 1) * (x^2 + x + 1) = x^3 - 1
