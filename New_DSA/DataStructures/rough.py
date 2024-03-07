@@ -8,7 +8,7 @@ string = 'rahul'
 
 nested = [[2, [37]], 4, ["hello"]]
 
-print(nested[0][1][0])
+# print(nested[0][1][0])
 
 def randomFunc(arr, index, value):
     if index >= 0 and index < len(arr):
@@ -20,8 +20,10 @@ def randomFunc(arr, index, value):
     
 arr = [ 1, 3, 5, 6]
 value = 7
-print(arr)
+# print(arr)
 
-print(randomFunc(arr, 3, value))
+# print(randomFunc(arr, 3, value))
 
-print(arr, value)
+# print(arr, value)
+
+print(list(range(0, 5)) == [0, 1, 2, 3, 4])
