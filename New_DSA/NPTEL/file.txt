@@ -1,0 +1,6 @@
+Database Management Systems (DBMS) support several languages for various tasks such as querying, data manipulation, administration, and programming. Some of the key languages used in DBMS are:
+
+1. **Structured Query Language (SQL)**:
+   - SQL is the standard language for interacting with relational databases. 
+   - SQL is divided into several sub-languages, including Data Definition Language (DDL).
+My name is Rahul
