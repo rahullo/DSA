@@ -1091,5 +1091,71 @@ def summaryRanges(nums):
     return ans
 
 
-print(summaryRanges([0, 1, 2, 4, 5, 7]))
+# print(summaryRanges([0, 1, 2, 4, 5, 7]))
 
+
+#17. Letter Combinations of a Phone Number
+class Solution:
+    def generate_combinations(self, sets, current_combination='', index=0):
+        if index == len(sets):
+            return [current_combination]
+    
+        combinations = []
+        for char in sets[index]:
+            combinations.extend(self.generate_combinations(sets, current_combination + char, index + 1))
+        return combinations
+
+# Example usage:
+    
+
+    def letterCombinations(self, digits: str):
+        digit_Key_pair = {
+            '2': 'abc',
+            '3': 'def',
+            '4': 'ghi',
+            '5': 'jkl',
+            '6': 'mno',
+            '7': 'pqrs',
+            '8': 'tuv',
+            '9': 'wxyz'
+        }
+        sets = []
+        for char in digits:
+            sets.append(digit_Key_pair[char])
+        
+        return self.generate_combinations(sets)
+
+    def letter_combinations(digits):
+        if not digits:
+            return []
+
+        # Define the mapping of digits to letters
+        mappings = {
+            '2': 'abc',
+            '3': 'def',
+            '4': 'ghi',
+            '5': 'jkl',
+            '6': 'mno',
+            '7': 'pqrs',
+            '8': 'tuv',
+            '9': 'wxyz'
+        }
+
+        def backtrack(combination, next_digits):
+            if len(next_digits) == 0:
+                result.append(combination)
+            else:
+                for letter in mappings[next_digits[0]]:
+                    backtrack(combination + letter, next_digits[1:])
+
+        result = []
+        backtrack('', digits)
+        return result
+
+s = Solution()
+sets = ['abc', 'pqrs']
+
+pairs = s.letterCombinations('234')
+print("Combinations of alphabet pairs:")
+print(pairs)
+# s.letterCombinations("234")
