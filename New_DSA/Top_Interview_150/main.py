@@ -1152,10 +1152,31 @@ class Solution:
         backtrack('', digits)
         return result
 
-s = Solution()
-sets = ['abc', 'pqrs']
+# s = Solution()
+# sets = ['abc', 'pqrs']
 
-pairs = s.letterCombinations('234')
-print("Combinations of alphabet pairs:")
-print(pairs)
+# pairs = s.letterCombinations('234')
+# print("Combinations of alphabet pairs:")
+# print(pairs)
 # s.letterCombinations("234")
+
+
+# 77. Combinations
+class Solution:
+    def combine(self, n: int, k: int):
+
+        def backtrack(start, current):
+            if len(current) == k:
+                result.append(current[:])
+                return
+            for i in range(start, n + 1):
+                current.append(i)
+                backtrack(i + 1, current)
+                current.pop()
+
+        result = []
+        backtrack(1, [])
+        return result
+s = Solution()
+
+# print(s.combine(4, 2))
