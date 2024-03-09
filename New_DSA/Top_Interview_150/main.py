@@ -1180,3 +1180,25 @@ class Solution:
 s = Solution()
 
 # print(s.combine(4, 2))
+
+#46 Permutation
+
+class Solution:
+    def permute(self, nums):
+        def backtrack(current):
+            if len(nums) == len(current):
+                result.append(current[:])
+                return
+            for num in nums:
+                if num not in current:
+                    current.append(num)
+                    backtrack(current)
+                    current.pop()
+
+
+        result = []
+        backtrack([])
+        return result
+    
+s = Solution()
+print(s.permute([1, 2, 3]))
