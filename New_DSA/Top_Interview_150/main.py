@@ -1200,5 +1200,32 @@ class Solution:
         backtrack([])
         return result
     
+# print(s.permute([1, 2, 3]))
+    
+
+
+class Solution:
+    def combination_sum(self, candidates, target):
+        def backtrack(start, current_sum, current_combination):
+            print('Start', start, ', current sum', current_sum, ', current combination', current_combination)
+            if current_sum == target:
+                print("\nCombination Inserted\n")
+                result.append(current_combination[:])
+                return
+            if current_sum > target:
+                print("TOO MUCH ADDiTION")
+                return
+            for i in range(start, len(candidates)):
+                current_combination.append(candidates[i])
+                backtrack(i, current_sum + candidates[i], current_combination)
+                current_combination.pop()
+
+        result = []
+        backtrack(0, 0, [])
+        return result
+
+# Example usage:
 s = Solution()
-print(s.permute([1, 2, 3]))
+# print(s.combination_sum([2, 3, 6, 7], 7))  # Output: [[2, 2, 3], [7]]
+print(s.combination_sum([2, 3, 5], 8))     # Output: [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
+# print(s.combination_sum([2], 1))            # Output: []
