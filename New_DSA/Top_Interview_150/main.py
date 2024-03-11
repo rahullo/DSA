@@ -1203,6 +1203,7 @@ class Solution:
 # print(s.permute([1, 2, 3]))
     
 
+#39. Combination Sum
 
 class Solution:
     def combination_sum(self, candidates, target):
@@ -1225,7 +1226,46 @@ class Solution:
         return result
 
 # Example usage:
-s = Solution()
+# s = Solution()
 # print(s.combination_sum([2, 3, 6, 7], 7))  # Output: [[2, 2, 3], [7]]
-print(s.combination_sum([2, 3, 5], 8))     # Output: [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
+# print(s.combination_sum([2, 3, 5], 8))     # Output: [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
 # print(s.combination_sum([2], 1))            # Output: []
+
+
+# 22. Generate Parentheses
+class Solution:
+    def generateParenthesis(self, n: int):
+        def backtracking(l, r, s):
+            if l == 0 and r == 0:
+                result.append(s)
+            if l > 0:
+                backtracking(l-1, r, s+'(')
+            if l < r:
+                backtracking(l, r-1, s+')')
+        
+        result = []
+        backtracking(n, n, '')
+        return result
+    
+    def generate_parentheses(self, n):
+        def backtrack(current, open_count, close_count):
+            if len(current) == 2 * n:
+                result.append(current)
+                return
+            if open_count < n:
+                backtrack(current + '(', open_count + 1, close_count)
+            if close_count < open_count:
+                backtrack(current + ')', open_count, close_count + 1)
+
+        result = []
+        backtrack('', 0, 0)
+        return result
+
+# Example usage:
+s = Solution()
+
+print(s.generate_parentheses(3))  # Output: ["((()))","(()())","(())()","()(())","()()()"]
+# print(s.generate_parentheses(1))  # Output: ["()"]
+
+
+# print(s.generateParenthesis(3))

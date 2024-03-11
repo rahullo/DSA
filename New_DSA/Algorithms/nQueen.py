@@ -57,3 +57,5 @@ if __name__ == "__main__":
         print_board(first_solution)
     else:
         print("No solution found for", n, "queens.")
+
+
