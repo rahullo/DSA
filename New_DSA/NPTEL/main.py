@@ -1,5 +1,3 @@
-fh = open("./NPTEL/file.txt", 'a')
+arr1 = [1]
 
-content = fh.write("My name is Rahul")
-
-print(content)
+print((arr1.pop()).append(2))
