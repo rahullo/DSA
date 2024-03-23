@@ -1,3 +1,5 @@
-arr1 = [1]
+str = 'Python Programming'
+str1 = str.upper()
+str2 = str.capitalize()
 
-print((arr1.pop()).append(2))
+print(print)
