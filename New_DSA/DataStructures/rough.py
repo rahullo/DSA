@@ -1,29 +1,29 @@
-list1 = [1, 2, 3, 4]
+import numpy as np
+import cv2
 
-string = 'rahul'
+def bit_plane_slicing(image):
+    # Initialize an empty list to store the bit planes
+    bit_planes = []
 
-# print(string[0:1] == string[0])
-# print(type(string[0:1]))
-# print(type(string[0]))
+    # Iterate through each bit position (from 0 to 7)
+    for bit_position in range(8):
+        # Create a mask for the current bit plane (bitwise AND operation)
+        mask = 1 << bit_position
+        print(mask)
+        # Extract the current bit plane by applying the mask
+        bit_plane = np.bitwise_and(image, mask)
 
-nested = [[2, [37]], 4, ["hello"]]
+        # Normalize the pixel values to the range [0, 255]
+        bit_plane = bit_plane * 255
 
-# print(nested[0][1][0])
+        # Append the bit plane to the list
+        bit_planes.append(bit_plane)
 
-def randomFunc(arr, index, value):
-    if index >= 0 and index < len(arr):
-        arr[index] = value
-        return True
-    else:
-        value = value+1
-        return False
-    
-arr = [ 1, 3, 5, 6]
-value = 7
-# print(arr)
+    return bit_planes
 
-# print(randomFunc(arr, 3, value))
+image = np.random.randint(0, 128, size=(32, 32), dtype=(np.uint8))
+sliced = bit_plane_slicing(image)
 
-# print(arr, value)
-
-print(list(range(0, 5)) == [0, 1, 2, 3, 4])
+# cv2.imshow('Original image', image)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()

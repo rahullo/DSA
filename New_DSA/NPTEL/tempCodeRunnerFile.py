@@ -1,4 +1,3 @@
-num1 = random.randint(0, 255)
-        num2 = random.randint(0, 255)
-        num3 = random.randint(0, 255)
-        a
+ duplicate_rows_and_columns(input_array)
+# for row in result_array:
+#     print(row)
