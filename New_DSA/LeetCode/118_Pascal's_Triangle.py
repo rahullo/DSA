@@ -1,3 +1,5 @@
+import time
+
 class Solution:
     def generate(self, numRows):
         ans = [[1]*x for x in range(1, numRows+1)]
@@ -17,6 +19,10 @@ class Solution:
         return res
 
 s = Solution()
+start = time.time()
+print(s.generate(5))
+end = time.time()
+elapsed_time = (end-start) * 1000 
+print(str(elapsed_time) + 'ms')
 
-# print(s.generate(5))
-print()
+# print(time.time()/60/60)
