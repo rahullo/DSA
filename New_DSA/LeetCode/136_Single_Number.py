@@ -12,7 +12,17 @@ class Solution:
                     return nums[i]
             elif nums[-1] != nums[-2]:
                 return nums[-1]
+            
 
+    def singleNumber2(self, nums):
+        # Initialize the result variable
+        result = 0
+        
+        # XOR all elements in the array
+        for num in nums:
+            result ^= num
+        
+        return result
 
 s = Solution()
 print(s.singleNumber([2,1,2]))
