@@ -54,7 +54,6 @@ class Solution:
                 positive[num] += 1
             else:
                 zeros += 1
-
         result = []
         if zeros:
             for n in negative:
