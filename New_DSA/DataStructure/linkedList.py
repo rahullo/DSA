@@ -58,6 +58,36 @@ class LinkedList:
         else:
             self.insertAtEnd(val)
 
+    def deleteAtStart(self):
+        if self.head and self.head.next:
+            self.head = self.head.next
+        elif self.head and not self.head.next:
+            self.head = None
+        else:
+            print("No node found")
+            
+    def deleteAtEnd(self):
+        currNode = self.head
+        previousNode = None
+        while currNode.next != None:
+            previousNode = currNode
+            currNode = currNode.next
+        previousNode.next = None
+    
+    def deleteByValue(self, val):
+        currNode = self.head
+        previousNode = None
+        while currNode.value != val:
+            previousNode = currNode
+            currNode = currNode.next
+
+        if currNode.next != None and previousNode != None:
+            previousNode.next = currNode.next
+        elif currNode.next == None:
+            previousNode.next = None
+        elif previousNode == None:
+            self.deleteAtStart()
+        
 
     def printLinkedList(self):
         currNode = self.head
@@ -74,7 +104,6 @@ linkedList.insertAtBegin(22)
 linkedList.insertAtBegin(11)
 linkedList.insertAtBegin(1)
 
-linkedList.printLinkedList()
 
 linkedList.insertAtIndex(25, 3)
 linkedList.insertAtIndex(0, 0)
@@ -82,4 +111,14 @@ linkedList.insertAtIndex(66, 8)
 
 linkedList.insert(26)
 linkedList.insert(77)
+
+linkedList.printLinkedList()
+
+linkedList.deleteAtStart()
+linkedList.deleteAtStart()
+
+linkedList.printLinkedList()
+
+linkedList.deleteByValue(11)
+
 linkedList.printLinkedList()
