@@ -96,29 +96,29 @@ class LinkedList:
             currNode = currNode.next
         print('\n')
 
-linkedList = LinkedList()
-linkedList.insertAtBegin(55)
-linkedList.insertAtBegin(44)
-linkedList.insertAtBegin(33)
-linkedList.insertAtBegin(22)
-linkedList.insertAtBegin(11)
-linkedList.insertAtBegin(1)
+# linkedList = LinkedList()
+# linkedList.insertAtBegin(55)
+# linkedList.insertAtBegin(44)
+# linkedList.insertAtBegin(33)
+# linkedList.insertAtBegin(22)
+# linkedList.insertAtBegin(11)
+# linkedList.insertAtBegin(1)
 
 
-linkedList.insertAtIndex(25, 3)
-linkedList.insertAtIndex(0, 0)
-linkedList.insertAtIndex(66, 8)
+# linkedList.insertAtIndex(25, 3)
+# linkedList.insertAtIndex(0, 0)
+# linkedList.insertAtIndex(66, 8)
 
-linkedList.insert(26)
-linkedList.insert(77)
+# linkedList.insert(26)
+# linkedList.insert(77)
 
-linkedList.printLinkedList()
+# linkedList.printLinkedList()
 
-linkedList.deleteAtStart()
-linkedList.deleteAtStart()
+# linkedList.deleteAtStart()
+# linkedList.deleteAtStart()
 
-linkedList.printLinkedList()
+# linkedList.printLinkedList()
 
-linkedList.deleteByValue(11)
+# linkedList.deleteByValue(11)
 
-linkedList.printLinkedList()
+# linkedList.printLinkedList()
