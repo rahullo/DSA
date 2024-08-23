@@ -1,4 +1,4 @@
-def partion(nums, low, high):
+def partition(nums, low, high):
     pivot = high
     i = low -1
     for j in range(low, high):
@@ -10,7 +10,7 @@ def partion(nums, low, high):
 
 def quickSort(nums, low, high):
     if low < high:
-        partitionIndex = partion(nums, low, high)
+        partitionIndex = partition(nums, low, high)
         quickSort(nums, low, partitionIndex-1)
         quickSort(nums, partitionIndex+1, high)
 
