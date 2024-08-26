@@ -36,3 +36,10 @@
 
 
 # print(10/10)
+
+
+# for i in range(ord('A'), ord('Z') + 1):
+#     print(chr(i), end=" ")
+
+
+print(ord('A'))
