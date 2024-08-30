@@ -125,7 +125,9 @@ cyclic_Linked_list.next.next = Node(33)
 cyclic_Linked_list.next.next.next = Node(44)
 cyclic_Linked_list.next.next.next.next = Node(55)
 cyclic_Linked_list.next.next.next.next.next = Node(66)
-cyclic_Linked_list.next.next.next.next.next.next = cyclic_Linked_list
+cyclic_Linked_list.next.next.next.next.next.next = Node(77)
+cyclic_Linked_list.next.next.next.next.next.next.next = Node(88)
+cyclic_Linked_list.next.next.next.next.next.next.next.next = cyclic_Linked_list.next.next
 
 
 def check_cycle_in_list(head):
@@ -139,6 +141,27 @@ def check_cycle_in_list(head):
             return "This is cyclic Linked List"
     return " Linked List is not Cyclic"
 
-print(check_cycle_in_list(head))
+# print(check_cycle_in_list(head))
 
 # display(cyclic_Linked_list)
+
+
+def find_loop_start_node(head):
+    slowNode = head
+    fastNode = head
+
+    while fastNode and fastNode.next:
+        slowNode = slowNode.next 
+        fastNode = fastNode.next.next 
+
+        if slowNode == fastNode:
+            slowNode = head
+            break
+        
+    while slowNode != fastNode:
+        slowNode = slowNode.next 
+        fastNode = fastNode.next 
+    return slowNode
+
+print(find_loop_start_node(cyclic_Linked_list).data)
+        
