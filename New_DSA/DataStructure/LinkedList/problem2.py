@@ -90,5 +90,55 @@ def nth_from_end(head, n):
     # pNthNode now points to the nth node from the end
     return pNthNode.data
 
-print(nth_from_end(head, 2))
-display(head)
+def _find_nth_from_end_recursively(node, n, counter):
+    # Base case: If node is None, we've reached the end of the list
+    if node is None:
+        return None
+    
+    # Recursively move to the next node
+    result = _find_nth_from_end_recursively(node.next, n, counter)
+    
+    # Increment counter when recursion starts to unwind
+    counter[0] += 1
+    
+    # Check if the current node is the nth node from the end
+    if counter[0] == n:
+        return node
+    
+    return result
+
+def find_nth_from_end(head, n):
+    counter = [0]  # Counter to track the position from the end
+    result_node = _find_nth_from_end_recursively(head, n, counter)
+    
+    if result_node:
+        return result_node.data
+    else:
+        print(f"{n} is greater than the number of nodes in the list.")
+        return None
+
+# print(find_nth_from_end(head, 2))
+
+cyclic_Linked_list = Node(11)
+cyclic_Linked_list.next = Node(22)
+cyclic_Linked_list.next.next = Node(33)
+cyclic_Linked_list.next.next.next = Node(44)
+cyclic_Linked_list.next.next.next.next = Node(55)
+cyclic_Linked_list.next.next.next.next.next = Node(66)
+cyclic_Linked_list.next.next.next.next.next.next = cyclic_Linked_list
+
+
+def check_cycle_in_list(head):
+    curr1 = head
+    curr2 = head
+
+    while curr2 and curr2.next:
+        curr1 = curr1.next 
+        curr2 = curr2.next.next
+        if curr2 == curr1:
+            return "This is cyclic Linked List"
+    return " Linked List is not Cyclic"
+
+print(check_cycle_in_list(head))
+
+# display(cyclic_Linked_list)
