@@ -176,7 +176,43 @@ def finding_loop(head):
             return 'Loop FOUND!'
     return 'No Loop FOUND!'
 
-print(finding_loop(cyclic_Linked_list))
-print(finding_loop(head))
+# print(finding_loop(cyclic_Linked_list))
+# print(finding_loop(head))
 
-# Check whether the given linked list is NULL-terminated. If there is a cycle, findthe length of the loop.
+# Check whether the given linked list is NULL-terminated. If there is a cycle, find the length of the loop.
+def calculate_cycle_length(meeting_point):
+    current = meeting_point
+    length = 0
+    
+    # Step 3: Traverse the cycle and count the nodes
+    while True:
+        current = current.next
+        length += 1
+        if current == meeting_point:
+            break
+    
+    return length
+
+def find_length(head):
+    turtle = head
+    hare = head 
+    while hare and hare.next:
+        # print('hare->', hare.data, 'turtle->', turtle.data)
+
+        turtle = turtle.next
+        hare = hare.next.next
+        if hare == turtle:
+            return calculate_cycle_length(turtle)
+        
+    # print('hare->', hare.data, 'turtle->', turtle.data)
+    # count = 1
+    # hare = hare.next
+    # while hare != turtle:
+    #     print('hare->', hare.data, 'turtle->', turtle.data)
+
+    #     hare = hare.next 
+    #     count +=1
+
+    # return count
+
+print('Length of Linked List = ', find_length(cyclic_Linked_list))
