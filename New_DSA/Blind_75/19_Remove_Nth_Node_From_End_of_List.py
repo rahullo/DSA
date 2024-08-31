@@ -20,23 +20,22 @@ def printList(head):
 
 
 def removeNthFromEnds(head, n):
-    count = 0
-    curr = head
-    while curr:
-        curr = curr.next 
-        count +=1
+    dummy = ListNode(0, head)
+    left = dummy
+    right = head
 
-    i = count - n
-    curr = head
-    prev = None
-    for j in range(i):
-        prev = curr
-        curr = curr.next 
-    
-    print('curr->', curr.val, ', prev->', prev.val)
-    temp = curr.next 
-    prev.next = temp
-    return head
+    while n > 0:
+        right = right.next
+        n -= 1
+
+    while right:
+        left = left.next
+        right = right.next
+
+    # delete
+    left.next = left.next.next
+    return dummy.next
+
 
 printList(list1)
 print('\n')
