@@ -1,4 +1,4 @@
-#How will you find the middle of the linked list?
+# How will you find the middle of the linked list?
 
 class Node:
     def __init__(self, data) -> None:
