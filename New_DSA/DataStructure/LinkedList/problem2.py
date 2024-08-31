@@ -163,5 +163,20 @@ def find_loop_start_node(head):
         fastNode = fastNode.next 
     return slowNode
 
-print(find_loop_start_node(cyclic_Linked_list).data)
-        
+# print(find_loop_start_node(cyclic_Linked_list).data)
+
+# In the Floyd cycle finding algorithm, does it work if we use steps 2 and 3 instead of 1 and 2?
+def finding_loop(head):
+    turtle = head
+    hare = head
+    while hare and hare.next.next:
+        hare = hare.next.next.next 
+        turtle = turtle.next.next
+        if hare == turtle:
+            return 'Loop FOUND!'
+    return 'No Loop FOUND!'
+
+print(finding_loop(cyclic_Linked_list))
+print(finding_loop(head))
+
+# Check whether the given linked list is NULL-terminated. If there is a cycle, findthe length of the loop.
