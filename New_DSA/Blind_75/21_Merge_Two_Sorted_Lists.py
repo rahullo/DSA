@@ -42,8 +42,8 @@ def mergeTwoLists(list1, list2):
 
     return dummy.next
 
-def mergeTwoListsRecusion(list1, list2):
+# def mergeTwoListsRecusion(list1, list2):
 
 
-l = mergeTwoListsRecusion(list1, list2)
+l = mergeTwoLists(list1, list2)
 printList(l)
