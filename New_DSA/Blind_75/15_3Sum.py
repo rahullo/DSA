@@ -1,14 +1,4 @@
 def threeSum(nums):
-    """
-    Finds all unique triplets in the array nums such that a + b + c == 0.
-
-    Args:
-        nums: A list of integers.
-
-    Returns:
-        A list of lists representing the unique triplets.
-    """
-
     nums.sort()
     result = []
 

@@ -1,81 +1,47 @@
-#If the head of a linked list is pointing to kth element, then how will you get the elements before kth element?
-
-
-class Node:
+class XORLinkedListNode:
     def __init__(self, data):
         self.data = data
-        self.prev = None
-        self.next = None
+        self.npx = 10
 
-class DoublyLinkedList:
+class XORLinkedList:
     def __init__(self):
         self.head = None
-        self.tail = None
 
-    def append(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            self.tail = new_node
+    def insert_at_beginning(self, data):
+        print("Entered")
+        new_node = XORLinkedListNode(data)
+        new_node.npx = self.head
+        if self.head:
+            print(self.head.npx, new_node.npx)
+            self.head.npx = new_node ^ self.head.npx
+        self.head = new_node
 
-    def prepend(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head.prev = new_node
-            self.head = new_node
-
-    def insert_after(self, node, data):
-        if node is None:
-            return
-        new_node = Node(data)
-        new_node.prev = node
-        new_node.next = node.next
-        if node.next:
-            node.next.prev = new_node
-        node.next = new_node
-
-    def delete(self, node):
-        if node is None or (node is not self.head and node is not self.tail):
-            return
-        if node.prev:
-            node.prev.next = node.next
-        if node.next:
-            node.next.prev = node.prev
-        if node is self.head:
-            self.head = node.next
-        if node is self.tail:
-            self.tail = node.prev
-
-    def print_list(self):
+    def get_elements_before_kth(self, k):
+        if k <= 0:
+            return []
         current = self.head
-        while current:
-            print(current.data, end=" ")
-            current = current.next
-        print()
+        prev = None
+        for _ in range(k - 1):
+            prev = current
+            current = current.npx ^ prev
+        return self.get_elements_before(prev)
+
+    def get_elements_before(self, node):
+        elements = []
+        while node:
+            elements.append(node.data)
+            next_node = node.npx ^ elements[-1]
+            node = next_node
+        return elements[::-1]  # Reverse the list to get the correct order
 
 # Example usage
-dll = DoublyLinkedList()
-dll.append(1)
-dll.append(2)
-dll.append(3)
-dll.prepend(0)
-dll.insert_after(dll.head.next, 4)
-dll.print_list()  # Output: 0 1 4 2 3
-dll.delete(dll.head.next)
-dll.print_list()  # Output: 0 4 2 3
+xor_list = XORLinkedList()
+xor_list.insert_at_beginning(5)
+xor_list.insert_at_beginning(4)
+xor_list.insert_at_beginning(3)
+xor_list.insert_at_beginning(2)
+xor_list.insert_at_beginning(1)
 
-def display(head):
-    curr = head
-    while curr:
-        print(curr.data, end=" -> ")
-        curr = curr.next
-    print(None, '\n')
-
+k = 3
+elements_before_kth = xor_list.get_elements_before_kth(k)
+print("Elements before the kth element:", elements_before_kth)
