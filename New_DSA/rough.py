@@ -1,45 +1,44 @@
-# from pytube import YouTube
-# import os
-# # YouTube video URL
-# video_url = 'https://www.youtube.com/watch?v=CHSnz0bCaUk&t=137s'
+def countoddSubarrays(n, arr):
+    """
+    Counts the number of good subarrays in the given array.
+    A subarray is considered good if the XOR of its elements is odd and its length is even.
+    
+    Args:
+        n: The size of the array.
+        arr: The array of integers.
+    
+    Returns:
+        The count of good subarrays.
+    """
+    count = 0
+    prefix_xor = 0
 
-# # Output directory to save the downloaded video
-# save_path = 'D:/'
+    # Dictionaries to track the frequency of prefix_xor for even and odd indices
+    freq_even = {0: 1}  # Starting with 0 XOR at an imaginary index -1 (even)
+    freq_odd = {0: 0}   # No prefix XOR starts at an odd index initially
 
-# # Create a YouTube object
-# video = YouTube(video_url)
+    for i in range(n):
+        # Update the current prefix XOR
+        prefix_xor ^= arr[i]
 
-# # Get streams with 4K resolution and includes both video and audio tracks
-# streams = video.streams.filter(res='2160p', only_video=True)
+        if i % 2 == 0:
+            # If index is even, pair with previous odd-indexed XORs
+            count += freq_odd.get(prefix_xor ^ 1, 0)  # XOR needs to be odd
+            # Update the even-indexed XOR frequency
+            freq_even[prefix_xor] = freq_even.get(prefix_xor, 0) + 1
+        else:
+            # If index is odd, pair with previous even-indexed XORs
+            count += freq_even.get(prefix_xor ^ 1, 0)  # XOR needs to be odd
+            # Update the odd-indexed XOR frequency
+            freq_odd[prefix_xor] = freq_odd.get(prefix_xor, 0) + 1
 
-# if streams:
-#     # Select the first stream from the filtered streams
-#     stream = streams.first()
-
-#     # Download the selected stream along with audio
-#     audio_stream = video.streams.get_audio_only()
-#     stream.download(output_path=save_path, filename='video')
-#     audio_stream.download(output_path=save_path, filename='audio')
-
-#     # Merge video and audio into a single file
-#     video_file = save_path + 'video.mp4'
-#     audio_file = save_path + 'audio.mp4'
-#     merged_file = save_path + 'merged.mp4'
-#     os.system(f'ffmpeg -i {video_file} -i {audio_file} -c copy {merged_file}')
-
-#     # Optional: Delete video and audio files
-   
-
-#     print("Video Downloaded Successfully")
-# else:
-#     print("No 4K video with audio available for download.")
-
-
-# print(10/10)
+    return count
 
 
-# for i in range(ord('A'), ord('Z') + 1):
-#     print(chr(i), end=" ")
+n1 = 3
+arr1 = [1, 2, 3]
+print(countoddSubarrays(n1, arr1))  # Output: 2
 
-
-print(ord('A'))
+n2 = 5
+arr2 = [4, 2, 3, 2, 1]
+print(countoddSubarrays(n2, arr2))  # Output: 4
