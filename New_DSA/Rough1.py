@@ -47,7 +47,6 @@ def is_prime(n):
 def sumPrime(n):
     sum = 0
     for i in range(1, n+1):
-        
         if is_prime(i):
             sum += i
         
