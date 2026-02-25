@@ -22,7 +22,12 @@ def isValid(s):
 
 def isValid2(s):
     # Map of closing to opening brackets
-    bracket_map = {")": "(", "}": "{", "]": "["}
+    bracket_map = {
+        ")": "(",
+        "}": "{",
+        "]": "["
+    }
+    
     stack = []
 
     for char in s:
